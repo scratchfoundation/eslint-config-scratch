@@ -1,0 +1,31 @@
+{
+  "name": "eslint-config-scratch",
+  "version": "1.0.0",
+  "description": "Shareable ESLint config for Scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LLK/eslint-config-scratch.git"
+  },
+  "author": "Massachusetts Institute of Technology",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/LLK/eslint-config-scratch/issues"
+  },
+  "homepage": "https://github.com/LLK/eslint-config-scratch#readme",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "scratch"
+  ],
+  "optionalDependencies": {
+    "eslint-plugin-react": "^6.4.1"
+  },
+  "peerDependencies": {
+    "babel-eslint": "^7.0.0",
+    "eslint": "3.x"
+  }
+}
