@@ -63,5 +63,5 @@ module.exports = {
         'react/jsx-wrap-multilines': [2],
     },
     plugins: ['react'],
-    extends: ['plugin:react/all']
+    extends: ['plugin:react/recommended']
 };
