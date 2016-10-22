@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 module.exports = {
     parser: 'babel-eslint',
     rules: {
@@ -9,7 +8,7 @@ module.exports = {
         'array-callback-return': [1],
         'block-scoped-var': [1],
         'curly': [2, 'multi-line'],
-        'dot-location': [2, 'object'],
+        'dot-location': [2, 'property'],
         'dot-notation': [2],
         'eqeqeq': [2],
         'no-alert': [2],
@@ -28,11 +27,6 @@ module.exports = {
         'no-iterator': [2],
         'no-lone-blocks': [2],
         'no-loop-func': [2],
-        'no-magic-numbers': [1, {
-            ignore: [1, 60, 24, 365],
-            ignoreArrayIndexes: true,
-            enforceConst: true
-        }],
         'no-multi-spaces': [2],
         'no-multi-str': [2],
         'no-new': [1],
@@ -93,7 +87,6 @@ module.exports = {
         }],
         'max-len': [2, 120, 4],
         'new-parens': [2],
-        'newline-after-var': [2],
         'newline-per-chained-call': [2],
         'no-lonely-if': [1],
         'no-mixed-operators': [1],
@@ -112,9 +105,12 @@ module.exports = {
         'object-property-newline': [2, {
             allowMultiplePropertiesPerLine: true
         }],
-        'one-var': [2, 'always'],
+        'one-var': [2, 'never'],
         'operator-linebreak': [2, 'after'],
-        'quotes': [2, 'single'],
+        'quotes': [2, 'single', {
+            'allowTemplateLiterals': true,
+            'avoidEscape': true
+        }],
         'require-jsdoc': [1],
         'semi': [2, 'always'],
         'space-before-function-paren': [2, 'always'],

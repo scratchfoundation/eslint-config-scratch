@@ -1,7 +1,7 @@
 module.exports = {
     rules: {
         'arrow-body-style': [2, 'as-needed'],
-        'arrow-parens': [2, 'always'],
+        'arrow-parens': [2, 'as-needed'],
         'arrow-spacing': [2, {
             before: true,
             after: true
@@ -11,7 +11,7 @@ module.exports = {
         'no-useless-constructor': [2],
         'no-var': [1],
         'prefer-arrow-callback': [2],
-        'prefer-const': [1],
+        'prefer-const': [1, {destructuring: 'all'}],
         'prefer-template': [2],
         'rest-spread-spacing': [2, 'never'],
         'template-curly-spacing': [2, 'never']
@@ -19,4 +19,4 @@ module.exports = {
     env: {
         es6: true
     }
-}
+};
