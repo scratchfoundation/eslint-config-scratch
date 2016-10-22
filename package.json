@@ -27,5 +27,13 @@
   "peerDependencies": {
     "babel-eslint": "^7.0.0",
     "eslint": "3.x"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "1.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
