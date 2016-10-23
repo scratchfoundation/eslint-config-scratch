@@ -2,7 +2,12 @@ module.exports = {
     parser: 'babel-eslint',
     rules: {
         // Errors
-        'valid-jsdoc': [2],
+        'valid-jsdoc': [2, {
+            prefer: {
+                return: 'return'
+            },
+            requireReturn: false
+        }],
 
         // Best practices
         'array-callback-return': [1],
@@ -46,7 +51,9 @@ module.exports = {
         'no-useless-call': [2],
         'no-useless-concat': [1],
         'no-useless-escape': [2],
-        'no-warning-comments': [1],
+        'no-warning-comments': [1, {
+            location: 'anywhere'
+        }],
         'no-with': [2],
         'radix': [2],
         'wrap-iife': [2],
@@ -65,6 +72,7 @@ module.exports = {
         // Style
         'brace-style': [2],
         'camelcase': [2],
+        'comma-dangle': [2, 'never'],
         'func-style': [2, 'expression'],
         'indent': [2, 4],
         'jsx-quotes': [2, 'prefer-double'],
@@ -78,13 +86,6 @@ module.exports = {
             after: true
         }],
         'linebreak-style': [2, 'unix'],
-        'lines-around-comment': [2, {
-            allowArrayStart: true,
-            allowBlockStart: true,
-            allowObjectStart: true,
-            beforeBlockComment: true,
-            beforeLineComment: true
-        }],
         'max-len': [2, 120, 4],
         'new-parens': [2],
         'newline-per-chained-call': [2],
@@ -95,10 +96,7 @@ module.exports = {
             maxBOF: 0,
             maxEOF: 0
         }],
-        'no-negated-condition': [2],
-        'no-plusplus': [2, {
-            allowForLoopAfterthoughts: true
-        }],
+        'no-negated-condition': [1],
         'no-tabs': [2],
         'no-trailing-spaces': [2, { skipBlankLines: true }],
         'no-unneeded-ternary': [2],
