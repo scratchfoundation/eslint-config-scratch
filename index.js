@@ -113,18 +113,10 @@ module.exports = {
         }],
         'require-jsdoc': [1],
         'semi': [2, 'always'],
-        'space-before-function-paren': [2, 'always'],
-
-        // Node/CommonJS
-        'global-require': [2],
-        'handle-callback-err': [1],
-        'no-mixed-requires': [2],
-        'no-new-require': [2],
-        'no-path-concat': [2],
+        'space-before-function-paren': [2, 'always']
     },
     env: {
-        browser: true,
-        node: true
+        commonjs: true
     },
     extends: ['eslint:recommended']
 };
