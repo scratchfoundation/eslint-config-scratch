@@ -60,7 +60,7 @@ module.exports = {
         'react/jsx-space-before-closing': [2, 'always'],
         'react/jsx-uses-react': [2],
         'react/jsx-uses-vars': [2],
-        'react/jsx-wrap-multilines': [2],
+        'react/jsx-wrap-multilines': [2]
     },
     plugins: ['react'],
     extends: ['plugin:react/recommended']
