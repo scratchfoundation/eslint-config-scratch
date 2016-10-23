@@ -29,7 +29,7 @@
     "eslint-plugin-react": "^6.4.1"
   },
   "peerDependencies": {
-    "babel-eslint": "^7.0.0",
+    "babel-eslint": "7.x",
     "eslint": "3.x"
   },
   "devDependencies": {
