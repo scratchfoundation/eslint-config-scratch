@@ -103,8 +103,9 @@ module.exports = {
         }],
         'no-negated-condition': [1],
         'no-tabs': [2],
-        'no-trailing-spaces': [2, { skipBlankLines: true }],
+        'no-trailing-spaces': [2, {skipBlankLines: true}],
         'no-unneeded-ternary': [2],
+        'object-curly-spacing': [2],
         'object-property-newline': [2, {
             allowMultiplePropertiesPerLine: true
         }],
