@@ -108,9 +108,10 @@ module.exports = {
         }],
         'one-var': [2, 'never'],
         'operator-linebreak': [2, 'after'],
+        'quote-props': [2, 'consistent-as-needed'],
         'quotes': [2, 'single', {
-            'allowTemplateLiterals': true,
-            'avoidEscape': true
+            allowTemplateLiterals: true,
+            avoidEscape: true
         }],
         'require-jsdoc': [1],
         'semi': [2, 'always'],
