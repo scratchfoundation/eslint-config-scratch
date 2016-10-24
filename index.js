@@ -68,6 +68,7 @@ module.exports = {
 
         // Style
         'array-bracket-spacing': [2, 'never'],
+        'block-spacing': [2, 'always'],
         'brace-style': [2],
         'camelcase': [2],
         'comma-dangle': [2, 'never'],
