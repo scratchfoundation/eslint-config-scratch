@@ -122,7 +122,8 @@ module.exports = {
         'space-before-function-paren': [2, 'always'],
         'space-in-parens': [2],
         'space-infix-ops': [2],
-        'space-unary-ops': [2]
+        'space-unary-ops': [2],
+        'spaced-comment': [2]
     },
     env: {
         commonjs: true
