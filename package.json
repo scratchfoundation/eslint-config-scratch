@@ -30,7 +30,7 @@
   },
   "peerDependencies": {
     "babel-eslint": "7.x",
-    "eslint": "3.x"
+    "eslint": "~3.8"
   },
   "devDependencies": {
     "cz-conventional-changelog": "1.2.0",
