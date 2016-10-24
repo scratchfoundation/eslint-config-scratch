@@ -67,6 +67,7 @@ module.exports = {
         'strict': [2, 'never'],
 
         // Style
+        'array-bracket-spacing': [2, 'never'],
         'brace-style': [2],
         'camelcase': [2],
         'comma-dangle': [2, 'never'],
