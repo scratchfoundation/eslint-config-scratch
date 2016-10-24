@@ -67,9 +67,17 @@ module.exports = {
         'strict': [2, 'never'],
 
         // Style
+        'array-bracket-spacing': [2, 'never'],
+        'block-spacing': [2, 'always'],
         'brace-style': [2],
-        'camelcase': [2],
+        'camelcase': [2, {
+            properties: 'never'
+        }],
         'comma-dangle': [2, 'never'],
+        'comma-spacing': [2],
+        'comma-style': [2],
+        'eol-last': [2, 'always'],
+        'func-call-spacing': [2, 'never'],
         'func-style': [2, 'expression'],
         'indent': [2, 4],
         'jsx-quotes': [2, 'prefer-double'],
@@ -95,20 +103,27 @@ module.exports = {
         }],
         'no-negated-condition': [1],
         'no-tabs': [2],
-        'no-trailing-spaces': [2, { skipBlankLines: true }],
+        'no-trailing-spaces': [2, {skipBlankLines: true}],
         'no-unneeded-ternary': [2],
+        'object-curly-spacing': [2],
         'object-property-newline': [2, {
             allowMultiplePropertiesPerLine: true
         }],
         'one-var': [2, 'never'],
         'operator-linebreak': [2, 'after'],
+        'quote-props': [2, 'consistent-as-needed'],
         'quotes': [2, 'single', {
-            'allowTemplateLiterals': true,
-            'avoidEscape': true
+            allowTemplateLiterals: true,
+            avoidEscape: true
         }],
         'require-jsdoc': [1],
         'semi': [2, 'always'],
-        'space-before-function-paren': [2, 'always']
+        'semi-spacing': [2],
+        'space-before-function-paren': [2, 'always'],
+        'space-in-parens': [2],
+        'space-infix-ops': [2],
+        'space-unary-ops': [2],
+        'spaced-comment': [2]
     },
     env: {
         commonjs: true
