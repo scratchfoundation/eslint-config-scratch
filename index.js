@@ -73,6 +73,7 @@ module.exports = {
         'camelcase': [2],
         'comma-dangle': [2, 'never'],
         'comma-spacing': [2],
+        'comma-style': [2],
         'func-style': [2, 'expression'],
         'indent': [2, 4],
         'jsx-quotes': [2, 'prefer-double'],
