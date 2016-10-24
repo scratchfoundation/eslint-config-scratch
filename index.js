@@ -70,7 +70,9 @@ module.exports = {
         'array-bracket-spacing': [2, 'never'],
         'block-spacing': [2, 'always'],
         'brace-style': [2],
-        'camelcase': [2],
+        'camelcase': [2, {
+            properties: 'never'
+        }],
         'comma-dangle': [2, 'never'],
         'comma-spacing': [2],
         'comma-style': [2],
