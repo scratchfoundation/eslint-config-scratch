@@ -117,6 +117,7 @@ module.exports = {
         }],
         'require-jsdoc': [1],
         'semi': [2, 'always'],
+        'semi-spacing': [2],
         'space-before-function-paren': [2, 'always']
     },
     env: {
