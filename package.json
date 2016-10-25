@@ -33,7 +33,9 @@
     "eslint": "3.x"
   },
   "devDependencies": {
+    "babel-eslint": "^7.0.0",
     "cz-conventional-changelog": "1.2.0",
+    "eslint": "^3.8.1",
     "semantic-release": "^4.3.5"
   },
   "config": {
