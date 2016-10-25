@@ -53,6 +53,12 @@ module.exports = {
 This will set up all the files in the project for linting as Node.js by default,
 except for those in `src/`, which will be linted as ES6 and React files.
 
+If you're linting React, also make sure your lint script lints `.jsx` files:
+```json
+"scripts": {
+    "lint": "eslint . --ext .js,.jsx"
+}
+```
 
 ## Committing
 This project uses [semantic release](https://github.com/semantic-release/semantic-release)
