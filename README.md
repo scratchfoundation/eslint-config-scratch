@@ -68,6 +68,29 @@ break unexpectedly.
 In order to automatically determine the type of version bump necessary, semantic
 release expects commit messages to be formatted following
 [conventional-changelog](https://github.com/bcoe/conventional-changelog-standard/blob/master/convention.md).
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+`subject` and `body` are your familiar commit subject and body. `footer` is
+where you would include `BREAKING CHANGE` and `ISSUES FIXED` sections if
+applicable.
+
+`type` is one of:
+* `fix`: A bug fix **Causes a patch release (0.0.x)**
+* `feat`: A new feature **Causes a minor release (0.x.0)**
+* `docs`: Documentation only changes
+* `style`: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+* `refactor`: A code change that neither fixes a bug nor adds a feature
+* `perf`: A code change that improves performance **May or may not cause a minor release. It's not clear.**
+* `test`: Adding missing tests or correcting existing tests
+* `ci`: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+* `chore`: Other changes that don't modify src or test files
+* `revert`: Reverts a previous commit
 
 Use the [commitizen CLI](https://github.com/commitizen/cz-cli) to make commits
 formatted in this way:
