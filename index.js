@@ -4,9 +4,22 @@ module.exports = {
         // Errors
         'valid-jsdoc': [2, {
             prefer: {
-                return: 'return'
+                arg: 'param',
+                argument: 'param',
+                class: 'constructor',
+                return: 'return',
+                virtual: 'abstract'
             },
-            requireReturn: false
+            preferType: {
+                Boolean: 'boolean',
+                Number: 'number',
+                Object: 'object',
+                String: 'string'
+            },
+            requireReturn: false,
+            requireReturnType: true,
+            requireParamDescription: true,
+            requireReturnDescription: true
         }],
 
         // Best practices
