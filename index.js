@@ -104,7 +104,11 @@ module.exports = {
             after: true
         }],
         'linebreak-style': [2, 'unix'],
-        'max-len': [2, 120, 4],
+        'max-len': [2, {
+            code: 120,
+            tabWidth: 4,
+            ignoreUrls: true
+        }],
         'new-parens': [2],
         'newline-per-chained-call': [2],
         'no-lonely-if': [1],
