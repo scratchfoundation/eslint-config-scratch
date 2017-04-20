@@ -35,10 +35,7 @@ Your config files should be set up like
 ```javascript
 // scratch-project/.eslintrc.js
 module.exports = {
-    extends: ['scratch', 'scratch/node'],
-    env: {
-        node: true
-    }
+    extends: ['scratch', 'scratch/es6', 'scratch/node']
 };
 
 // scratch-project/src/.eslintrc.js
