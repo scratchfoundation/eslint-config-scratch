@@ -9,9 +9,9 @@ module.exports = {
         'no-confusing-arrow': [2],
         'no-useless-computed-key': [2],
         'no-useless-constructor': [2],
-        'no-var': [1],
+        'no-var': [2],
         'prefer-arrow-callback': [2],
-        'prefer-const': [1, {destructuring: 'all'}],
+        'prefer-const': [2, {destructuring: 'all'}],
         'prefer-template': [2],
         'rest-spread-spacing': [2, 'never'],
         'template-curly-spacing': [2, 'never']
