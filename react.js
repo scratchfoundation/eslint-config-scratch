@@ -16,12 +16,12 @@ module.exports = {
         }],
         'react/no-render-return-value': [2],
         'react/no-set-state': [0],
-        'react/no-string-refs': [2],
+        'react/no-string-refs': [1],
         'react/no-unescaped-entities': [2],
         'react/no-unknown-property': [2],
         'react/no-unused-prop-types': [2],
         'react/prefer-es6-class': [2],
-        'react/prefer-stateless-function': [2],
+        'react/prefer-stateless-function': [1],
         'react/prop-types': [2],
         'react/react-in-jsx-scope': [2],
         'react/require-optimization': [0],
@@ -43,7 +43,7 @@ module.exports = {
         'react/jsx-indent-props': [2],
         'react/jsx-key': [2],
         'react/jsx-max-props-per-line': [2, {maximum: 1}],
-        'react/jsx-no-bind': [2, {
+        'react/jsx-no-bind': [1, {
             ignoreRefs: true
         }],
         'react/jsx-no-comment-textnodes': [2],

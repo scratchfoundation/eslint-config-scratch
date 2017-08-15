@@ -23,19 +23,19 @@ module.exports = {
         }],
 
         // Best practices
-        'array-callback-return': [2],
-        'block-scoped-var': [2],
+        'array-callback-return': [1],
+        'block-scoped-var': [1],
         'curly': [2, 'multi-line'],
         'dot-location': [2, 'property'],
         'dot-notation': [2],
         'eqeqeq': [2],
         'no-alert': [2],
         'no-div-regex': [2],
-        'no-else-return': [2],
+        'no-else-return': [1],
         'no-eq-null': [2],
         'no-eval': [2],
         'no-extend-native': [2],
-        'no-extra-bind': [2],
+        'no-extra-bind': [1],
         'no-global-assign': [2],
         'no-implied-eval': [2],
         'no-invalid-this': [2],
@@ -44,17 +44,22 @@ module.exports = {
         'no-loop-func': [2],
         'no-multi-spaces': [2],
         'no-multi-str': [2],
-        'no-new': [2],
+        'no-new': [1],
         'no-proto': [2],
+        'no-restricted-properties': [1, {
+            object: 'lodash',
+            property: 'defaults',
+            message: 'Please use Object.assign'
+        }],
         'no-return-assign': [2],
         'no-script-url': [2],
         'no-self-compare': [2],
-        'no-sequences': [2],
+        'no-sequences': [1],
         'no-throw-literal': [2],
-        'no-unmodified-loop-condition': [2],
+        'no-unmodified-loop-condition': [1],
         'no-unused-expressions': [2],
         'no-useless-call': [2],
-        'no-useless-concat': [2],
+        'no-useless-concat': [1],
         'no-useless-escape': [2],
         'no-warning-comments': [1, {
             location: 'anywhere'
@@ -70,7 +75,7 @@ module.exports = {
         'no-shadow': [2],
         'no-undefined': [2],
         'no-use-before-define': [2],
-
+        
         // Strict
         'strict': [2, 'never'],
 
@@ -106,14 +111,14 @@ module.exports = {
         }],
         'new-parens': [2],
         'newline-per-chained-call': [2],
-        'no-lonely-if': [2],
-        'no-mixed-operators': [2],
+        'no-lonely-if': [1],
+        'no-mixed-operators': [1],
         'no-multiple-empty-lines': [2, {
             max: 2,
             maxBOF: 0,
             maxEOF: 0
         }],
-        'no-negated-condition': [2],
+        'no-negated-condition': [1],
         'no-tabs': [2],
         'no-trailing-spaces': [2, {skipBlankLines: true}],
         'no-unneeded-ternary': [2],
@@ -128,7 +133,7 @@ module.exports = {
             allowTemplateLiterals: true,
             avoidEscape: true
         }],
-        'require-jsdoc': [2],
+        'require-jsdoc': [1],
         'semi': [2, 'always'],
         'semi-spacing': [2],
         'space-before-function-paren': [2, 'always'],
