@@ -1,6 +1,8 @@
 # Scratch ESLint config
 #### eslint-config-scratch defines the eslint rules used for Scratch Javascript projects
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/eslint-config-scratch.svg)](https://greenkeeper.io/)
+
 ## Installation
 Install the config along with its peer dependencies, eslint and babel-eslint.
 ```bash
