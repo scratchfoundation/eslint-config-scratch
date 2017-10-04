@@ -57,7 +57,7 @@ module.exports = {
             shorthandFirst: true,
             callbacksLast: true
         }],
-        'react/jsx-space-before-closing': [2, 'always'],
+        'react/jsx-tag-spacing': [2],
         'react/jsx-uses-react': [2],
         'react/jsx-uses-vars': [2],
         'react/jsx-wrap-multilines': [2]
