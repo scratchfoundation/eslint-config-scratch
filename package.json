@@ -26,14 +26,14 @@
     "scratch"
   ],
   "optionalDependencies": {
-    "eslint-plugin-react": "7.x"
+    "eslint-plugin-react": "^7.0"
   },
   "peerDependencies": {
-    "babel-eslint": "7.x",
-    "eslint": "4.x"
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "8.0.1",
     "cz-conventional-changelog": "1.2.0",
     "eslint": "^4.4.1",
     "semantic-release": "^4.3.5"
