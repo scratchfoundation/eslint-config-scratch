@@ -28,7 +28,6 @@ module.exports = {
         'react/require-render-return': [2],
         'react/self-closing-comp': [2],
         'react/sort-comp': [2],
-        'react/sort-prop-types': [2],
         'react/style-prop-object': [2],
 
         // JSX
@@ -52,10 +51,6 @@ module.exports = {
         'react/jsx-no-undef': [2],
         'react/jsx-pascal-case': [2, {
             allowAllCaps: true
-        }],
-        'react/jsx-sort-props': [2, {
-            shorthandFirst: true,
-            callbacksLast: true
         }],
         'react/jsx-tag-spacing': [2],
         'react/jsx-uses-react': [2],
