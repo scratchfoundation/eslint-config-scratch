@@ -7,8 +7,6 @@ notifications:
   email: false
 node_js:
   - 10
-before_install:
-  - npm install -g npm@latest
 before_script:
   - npm prune
 after_success:
