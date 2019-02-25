@@ -4,8 +4,7 @@
   "description": "Shareable ESLint config for Scratch",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "eslint ."
   },
   "eslintConfig": {
     "extends": "./index.js"
@@ -35,8 +34,7 @@
   "devDependencies": {
     "babel-eslint": "10.0.1",
     "cz-conventional-changelog": "2.1.0",
-    "eslint": "^5.0.0",
-    "semantic-release": "^15.13.3"
+    "eslint": "^5.0.0"
   },
   "config": {
     "commitizen": {
