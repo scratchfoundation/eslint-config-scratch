@@ -7,10 +7,8 @@ notifications:
   email: false
 node_js:
   - 10
-before_script:
-  - npm prune
 after_success:
-  - npm run semantic-release
+  - npx semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
