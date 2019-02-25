@@ -1,4 +1,7 @@
 # Scratch ESLint config
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/eslint-config-scratch.svg)](https://greenkeeper.io/)
+
 #### eslint-config-scratch defines the eslint rules used for Scratch Javascript projects
 
 ## Installation
