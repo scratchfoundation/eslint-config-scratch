@@ -1,5 +1,5 @@
 module.exports = {
     globals: {
-        Scratch: "readonly"
+        Scratch: 'readonly'
     }
-}
+};
