@@ -55,7 +55,10 @@ module.exports = {
         'react/jsx-tag-spacing': [2],
         'react/jsx-uses-react': [2],
         'react/jsx-uses-vars': [2],
-        'react/jsx-wrap-multilines': [2]
+        'react/jsx-wrap-multilines': [2],
+
+        // Allow deprecated lifecycle methods
+        'camelcase': [2, {allow: ['^UNSAFE_']}]
     },
     plugins: ['react'],
     extends: ['plugin:react/recommended']
