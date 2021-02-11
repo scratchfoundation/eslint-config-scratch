@@ -56,7 +56,7 @@ module.exports = {
         'no-useless-call': [2],
         'no-useless-concat': [2],
         'no-useless-escape': [2],
-        'no-warning-comments': [1, {
+        'no-warning-comments': [0, {
             location: 'anywhere'
         }],
         'no-with': [2],
