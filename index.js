@@ -56,9 +56,7 @@ module.exports = {
         'no-useless-call': [2],
         'no-useless-concat': [2],
         'no-useless-escape': [2],
-        'no-warning-comments': [1, {
-            location: 'anywhere'
-        }],
+        'no-warning-comments': [0],
         'no-with': [2],
         'radix': [2],
         'wrap-iife': [2],
