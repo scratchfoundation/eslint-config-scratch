@@ -6,6 +6,7 @@ module.exports = {
             before: true,
             after: true
         }],
+        'no-prototype-builtins': [2],
         'no-confusing-arrow': [2],
         'no-duplicate-imports': [2],
         'no-return-await': [2],
