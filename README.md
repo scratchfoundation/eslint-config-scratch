@@ -5,14 +5,17 @@
 #### eslint-config-scratch defines the eslint rules used for Scratch Javascript projects
 
 ## Installation
+
 Install the config along with its peer dependencies, eslint and babel-eslint.
+
 ```bash
-npm install -D eslint-config-scratch eslint@3 babel-eslint@7
+npm install -DE eslint-config-scratch eslint@^8 @babel/eslint-parser@^7
 ```
 
 If you're using the React config, also install the dependency for that
+
 ```bash
-npm install -D eslint-plugin-react@6
+npm install -DE eslint-plugin-react@^7
 ```
 
 ## Usage
