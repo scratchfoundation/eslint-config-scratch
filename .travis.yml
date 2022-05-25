@@ -1,17 +1,10 @@
 sudo: false
 language: node_js
-cache:
-  directories:
-    - node_modules
 notifications:
   email: false
 node_js:
-  - 10
-before_install:
-- npm install -g greenkeeper-lockfile
-install: npm install
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+- lts/*
+install: npm ci --production=false
 after_success:
   - npx semantic-release
 branches:
