@@ -33,6 +33,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.17.0",
+    "@commitlint/cli": "17.1.2",
+    "@commitlint/config-conventional": "17.1.0",
     "eslint": "8.15.0"
   },
   "config": {
