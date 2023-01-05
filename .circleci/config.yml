@@ -21,6 +21,10 @@ workflows:
     jobs:
       - commitlint/lint:
           target-branch: master
+          filters:
+            branches:
+                ignore:
+                  - master
   main-workflow:
     jobs:
       - main-job
