@@ -5,7 +5,7 @@ orbs:
 alias:
   - &defaults
     docker:
-      - image: cimg/node:lts
+      - image: cimg/node:18.12.1
     executor: node/default
 jobs:
   main-job:
@@ -14,7 +14,7 @@ jobs:
       - checkout
       - node/install-packages
       - run: npm test
-      - run: npx semantic-release
+      - run: npx --no -- semantic-release
 workflows:
   version: 2
   commitlint:
