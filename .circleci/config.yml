@@ -5,7 +5,7 @@ orbs:
 alias:
   - &defaults
     docker:
-      - image: cimg/node:18.12.1
+      - image: cimg/node:18.13.0
     executor: node/default
 jobs:
   main-job:
