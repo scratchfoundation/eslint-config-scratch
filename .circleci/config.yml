@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   commitlint: conventional-changelog/commitlint@1.0.0
-  node: circleci/node@5.0.3
+  node: circleci/node@5.1.0
 alias:
   - &defaults
     docker:
