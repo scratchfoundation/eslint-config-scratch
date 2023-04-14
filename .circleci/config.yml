@@ -27,4 +27,6 @@ workflows:
                   - master
   main-workflow:
     jobs:
-      - main-job
+      - main-job:
+          context:
+            - scratch-npm-creds
