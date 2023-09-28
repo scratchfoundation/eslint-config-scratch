@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LLK/eslint-config-scratch.git"
+    "url": "https://github.com/scratchfoundation/eslint-config-scratch.git"
   },
   "author": "Massachusetts Institute of Technology",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/LLK/eslint-config-scratch/issues"
+    "url": "https://github.com/scratchfoundation/eslint-config-scratch/issues"
   },
-  "homepage": "https://github.com/LLK/eslint-config-scratch#readme",
+  "homepage": "https://github.com/scratchfoundation/eslint-config-scratch#readme",
   "keywords": [
     "eslint",
     "eslintconfig",
