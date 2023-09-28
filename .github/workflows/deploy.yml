@@ -1,9 +1,12 @@
 name: Build eslint-config-scratch
 
 on:
-    push:
-        branches:
-        - master
+  push:
+permissions: 
+  contents: write # publish a GitHub release
+  pages: write # deploy to GitHub Pages
+  issues: write # comment on released issues
+  pull-requests: write # comment on released pull requests
 jobs:
     build-eslint:
         runs-on: ubuntu-latest
@@ -17,8 +20,9 @@ jobs:
         - name: Install Dependencies
           run: npm install
         - name: Test
-          run: Semantic Release
-        - name: Build
+          run: npm test
+        - name: Semantic Release
+          if: github.ref == 'refs/heads/master' && github.event_name == 'push'
           env:
             NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
