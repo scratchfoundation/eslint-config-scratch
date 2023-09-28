@@ -1,0 +1,26 @@
+name: Build eslint-config-scratch
+
+on:
+    push:
+        branches:
+        - master
+jobs:
+    build-eslint:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v4
+        - uses: wagoid/commitlint-github-action@v5
+        - name: Use Node.js 18
+          uses: actions/setup-node@v1
+          with:
+            node-version: 18.x
+        - name: Install Dependencies
+          run: npm install
+        - name: Test
+          run: Semantic Release
+        - name: Build
+          env:
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: npx --no -- semantic-release
+    
