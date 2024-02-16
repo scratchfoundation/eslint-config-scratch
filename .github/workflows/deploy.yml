@@ -11,10 +11,10 @@ jobs:
     build-eslint:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v4
-        - uses: wagoid/commitlint-github-action@v5
+        - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        - uses: wagoid/commitlint-github-action@5ce82f5d814d4010519d15f0552aec4f17a1e1fe # v5
         - name: Use Node.js 18
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
           with:
             node-version: 18.x
         - name: Install Dependencies
