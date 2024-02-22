@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.7](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.0.6...v9.0.7) (2024-02-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency scratch-semantic-release-config to v1.0.13 ([5e5c2f4](https://github.com/scratchfoundation/eslint-config-scratch/commit/5e5c2f4b92c2029cf007647e05a40b876b6c7e7d))
+
 ## [9.0.6](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.0.5...v9.0.6) (2024-02-22)
 
 
