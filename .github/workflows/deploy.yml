@@ -11,7 +11,7 @@ jobs:
     build-eslint:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         - uses: wagoid/commitlint-github-action@5ce82f5d814d4010519d15f0552aec4f17a1e1fe # v5
         - name: Use Node.js 18
           uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
