@@ -37,7 +37,7 @@
     "@commitlint/cli": "17.8.1",
     "@commitlint/config-conventional": "17.8.1",
     "eslint": "8.57.1",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "scratch-semantic-release-config": "3.0.0",
     "semantic-release": "19.0.5"
   },
