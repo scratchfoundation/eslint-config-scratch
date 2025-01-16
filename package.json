@@ -39,7 +39,7 @@
     "eslint": "8.57.1",
     "husky": "8.0.3",
     "scratch-semantic-release-config": "3.0.0",
-    "semantic-release": "19.0.5"
+    "semantic-release": "24.2.1"
   },
   "config": {
     "commitizen": {
