@@ -30,14 +30,14 @@
   },
   "peerDependencies": {
     "@babel/eslint-parser": "^7.11.0",
-    "eslint": "^8.0.0"
+    "eslint": "^8.0.0 || ^9.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.26.8",
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
     "@commitlint/types": "19.5.0",
-    "eslint": "8.57.1",
+    "eslint": "9.20.1",
     "husky": "8.0.3",
     "scratch-semantic-release-config": "3.0.0",
     "semantic-release": "24.2.2"
