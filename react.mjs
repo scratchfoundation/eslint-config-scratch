@@ -1,4 +1,22 @@
-module.exports = {
+import react from 'eslint-plugin-react';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import js from '@eslint/js';
+import {FlatCompat} from '@eslint/eslintrc';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all
+});
+
+export default [...compat.extends('plugin:react/recommended'), {
+    plugins: {
+        react
+    },
+
     rules: {
         'react/display-name': [2],
         'react/forbid-prop-types': [2],
@@ -11,9 +29,11 @@ module.exports = {
         'react/no-direct-mutation-state': [2],
         'react/no-find-dom-node': [2],
         'react/no-is-mounted': [2],
+
         'react/no-multi-comp': [2, {
             ignoreStateless: true
         }],
+
         'react/no-render-return-value': [2],
         'react/no-set-state': [0],
         'react/no-string-refs': [2],
@@ -29,8 +49,6 @@ module.exports = {
         'react/self-closing-comp': [2],
         'react/sort-comp': [2],
         'react/style-prop-object': [2],
-
-        // JSX
         'react/jsx-boolean-value': [2, 'never'],
         'react/jsx-closing-bracket-location': [2, 'line-aligned'],
         'react/jsx-curly-spacing': [2],
@@ -41,22 +59,27 @@ module.exports = {
         'react/jsx-indent': [2],
         'react/jsx-indent-props': [2],
         'react/jsx-key': [2],
-        'react/jsx-max-props-per-line': [2, {maximum: 1}],
+
+        'react/jsx-max-props-per-line': [2, {
+            maximum: 1
+        }],
+
         'react/jsx-no-bind': [2, {
             ignoreRefs: true
         }],
+
         'react/jsx-no-comment-textnodes': [2],
         'react/jsx-no-duplicate-props': [2],
         'react/jsx-no-target-blank': [2],
         'react/jsx-no-undef': [2],
+
         'react/jsx-pascal-case': [2, {
             allowAllCaps: true
         }],
+
         'react/jsx-tag-spacing': [2],
         'react/jsx-uses-react': [2],
         'react/jsx-uses-vars': [2],
         'react/jsx-wrap-multilines': [2]
-    },
-    plugins: ['react'],
-    extends: ['plugin:react/recommended']
-};
+    }
+}];

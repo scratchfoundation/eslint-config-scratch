@@ -2,13 +2,10 @@
   "name": "eslint-config-scratch",
   "version": "9.0.9",
   "description": "Shareable ESLint config for Scratch",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "prepare": "husky install",
     "test": "eslint ."
-  },
-  "eslintConfig": {
-    "extends": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -46,5 +43,11 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.23.0",
+    "eslint-plugin-jsdoc": "50.6.9",
+    "globals": "16.0.0"
   }
 }
