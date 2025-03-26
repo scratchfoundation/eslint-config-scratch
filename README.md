@@ -49,24 +49,24 @@ Your config files should be set up like
 
 ```javascript
 // scratch-project/eslint.config.mjs
-import nodeConfig from 'eslint-config-scratch/node';
-export default nodeConfig;
+import nodeConfig from 'eslint-config-scratch/node'
+export default nodeConfig
 ```
 
 ```javascript
 // scratch-project/src/eslint.config.mjs
-import reactConfig from 'eslint-config-scratch/react';
+import reactConfig from 'eslint-config-scratch/react'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-    reactConfig,
-    // If you need to add or override settings:
-    {
-        rules: {
-            // ...
-        }
-    }
-];
+  reactConfig,
+  // If you need to add or override settings:
+  {
+    rules: {
+      // ...
+    },
+  },
+]
 ```
 
 This will set up all the files in the project for linting as Node.js by default, except for those in `src/`, which
@@ -88,19 +88,19 @@ object and customize it as needed.
 
 ```javascript
 // scratch-project/eslint.config.mjs
-import {makeConfig} from 'eslint-config-scratch';
-import globals from 'globals';
+import { makeConfig } from 'eslint-config-scratch'
+import globals from 'globals'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-    ...makeConfig({
-        jsx: true,
-    }),
-    {
-        languageOptions: {
-            globals: globals.worker,
-        },
-    }
+  ...makeConfig({
+    jsx: true,
+  }),
+  {
+    languageOptions: {
+      globals: globals.worker,
+    },
+  },
 ]
 ```
 
