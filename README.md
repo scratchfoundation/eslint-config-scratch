@@ -1,6 +1,7 @@
 # Scratch ESLint config
 
-`eslint-config-scratch` defines the eslint rules used for Scratch Javascript projects.
+`eslint-config-scratch` defines the eslint rules used for Scratch Javascript and TypeScript projects. The rules are
+based on the [ESLint Stylistic project](https://eslint.style/).
 
 ## Installation
 
@@ -18,14 +19,16 @@ npm install -DE eslint-plugin-react@^7
 
 ## Usage
 
-The configuration is split up into several modules:
+### Common configurations
+
+There are several pre-made configurations available:
 
 * `eslint-config-scratch`: The base configuration, not configured for any particular environment
 * `eslint-config-scratch/node`: Rules for targeting Node.js with ESM
 * `eslint-config-scratch/web`: Rules for targeting Scratch's supported web browsers
 * `eslint-config-scratch/react`: Rules for targeting Scratch's supported web browsers with React
 
-These configurations are set up for the flat config format required as of `eslint@^9`.
+All configurations in this repository are set up for the flat config format required as of `eslint@^9`.
 
 Usually web projects contain some files targeting Node.js, for example configuration files, and some targeting web
 browsers. To lint both with the appropriate rules, set up a base `eslint.config.mjs` with the rules for Node.js and
@@ -52,10 +55,11 @@ export default nodeConfig;
 
 ```javascript
 // scratch-project/src/eslint.config.mjs
-import webConfig from 'eslint-config-scratch/web';
+import reactConfig from 'eslint-config-scratch/react';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-    webConfig,
+    reactConfig,
     // If you need to add or override settings:
     {
         rules: {
@@ -65,16 +69,52 @@ export default [
 ];
 ```
 
-This will set up all the files in the project for linting as Node.js by default,
-except for those in `src/`, which will be linted as ES6 and React files.
+This will set up all the files in the project for linting as Node.js by default, except for those in `src/`, which
+will be linted React files targeting web browsers.
 
-If you're linting React, also make sure your lint script lints `.jsx` files:
+In most cases, you won't need to specify the file names or extensions that `eslint` should check. You can probably
+just use this:
 
 ```json
 "scripts": {
-    "lint": "eslint . --ext .js,.jsx"
+    "lint": "eslint"
 }
 ```
+
+### Custom configurations
+
+If you need to set up a custom configuration, you can use the `makeConfig` function to create a basic configuration
+object and customize it as needed.
+
+```javascript
+// scratch-project/eslint.config.mjs
+import {makeConfig} from 'eslint-config-scratch';
+import globals from 'globals';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+    ...makeConfig({
+        jsx: true,
+    }),
+    {
+        languageOptions: {
+            globals: globals.worker,
+        },
+    }
+]
+```
+
+## Legacy Styles
+
+Scratch used very different styling rules in `eslint-config-scratch@^9` and below. If you need to use those rules, you
+can use the rule sets under `legacy/`:
+
+* `eslint-config-scratch/legacy`: Legacy base configuration, not configured for any particular environment
+* `eslint-config-scratch/legacy/es6`: Legacy rules for targeting Scratch's supported web browsers
+* `eslint-config-scratch/legacy/node`: Legacy rules for targeting Node.js
+* `eslint-config-scratch/legacy/react`: Legacy rules for targeting Scratch's supported web browsers with React
+
+New projects should not use these rule sets. They may disappear in the future.
 
 ## Committing
 

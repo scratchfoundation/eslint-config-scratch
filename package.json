@@ -2,10 +2,20 @@
   "name": "eslint-config-scratch",
   "version": "9.0.9",
   "description": "Shareable ESLint config for Scratch",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "node": "./lib/node.mjs",
+    "react": "./lib/react.mjs",
+    "web": "./lib/web.mjs",
+    "legacy": "./lib/legacy/index.mjs",
+    "legacy/es6": "./lib/legacy/es6.mjs",
+    "legacy/node": "./lib/legacy/node.mjs",
+    "legacy/react": "./lib/legacy/react.mjs"
+  },
   "main": "index.mjs",
   "scripts": {
     "prepare": "husky install",
-    "test": "eslint ."
+    "test": "eslint"
   },
   "repository": {
     "type": "git",
@@ -47,6 +57,7 @@
   "dependencies": {
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.23.0",
+    "@stylistic/eslint-plugin": "4.2.0",
     "eslint-plugin-jsdoc": "50.6.9",
     "globals": "16.0.0"
   }
