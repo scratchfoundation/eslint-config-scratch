@@ -1,11 +1,19 @@
-module.exports = {
+export default [{
+    languageOptions: {
+        globals: {},
+        ecmaVersion: 2018,
+        sourceType: 'script'
+    },
+
     rules: {
         'arrow-body-style': [2, 'as-needed'],
         'arrow-parens': [2, 'as-needed'],
+
         'arrow-spacing': [2, {
             before: true,
             after: true
         }],
+
         'no-prototype-builtins': [2],
         'no-confusing-arrow': [2],
         'no-duplicate-imports': [2],
@@ -16,7 +24,11 @@ module.exports = {
         'no-useless-rename': [2],
         'no-var': [2],
         'prefer-arrow-callback': [2],
-        'prefer-const': [2, {destructuring: 'all'}],
+
+        'prefer-const': [2, {
+            destructuring: 'all'
+        }],
+
         'prefer-promise-reject-errors': [2],
         'prefer-rest-params': [2],
         'prefer-spread': [2],
@@ -26,11 +38,5 @@ module.exports = {
         'rest-spread-spacing': [2, 'never'],
         'symbol-description': [2],
         'template-curly-spacing': [2, 'never']
-    },
-    env: {
-        es6: true
-    },
-    parserOptions: {
-        ecmaVersion: 2018
     }
-};
+}];

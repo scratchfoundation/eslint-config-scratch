@@ -7,7 +7,7 @@
 Install the config along with its peer dependencies, eslint and babel-eslint.
 
 ```bash
-npm install -DE eslint-config-scratch eslint@^8 @babel/eslint-parser@^7
+npm install -DE eslint-config-scratch eslint@^9 @babel/eslint-parser@^7
 ```
 
 If you're using the React config, also install the dependency for that
@@ -20,41 +20,49 @@ npm install -DE eslint-plugin-react@^7
 
 The configuration is split up into several modules:
 
-* `scratch`: The base configuration. Always extend this.
-* `scratch/node`: Rules for node, e.g., server-side code, tests, and scripts
-* `scratch/es6`: Rules for ES6, for use when you're transpiling with webpack
-* `scratch/react`: Rules for React projects
+* `eslint-config-scratch`: The base configuration, not configured for any particular environment
+* `eslint-config-scratch/node`: Rules for targeting Node.js with ESM
+* `eslint-config-scratch/web`: Rules for targeting Scratch's supported web browsers
+* `eslint-config-scratch/react`: Rules for targeting Scratch's supported web browsers with React
 
-Usually web projects have a mix of node and web environment files. To lint both
-with the appropriate rules, set up a base `.eslintrc.js` with the rules for node
-and then override the node configuration in `src` (where web code usually lives).
-E.g., with a file structure like this:
+These configurations are set up for the flat config format required as of `eslint@^9`.
+
+Usually web projects contain some files targeting Node.js, for example configuration files, and some targeting web
+browsers. To lint both with the appropriate rules, set up a base `eslint.config.mjs` with the rules for Node.js and
+then override that configuration in `src` (or wherever your web code lives).
+
+Your file structure might look like this:
 
 ```raw
 scratch-project
-- .eslintrc.js
+- eslint.config.mjs
 - package.json
 - src
-  - .eslintrc.js
+  - eslint.config.mjs
   - index.js
 ```
 
 Your config files should be set up like
 
 ```javascript
-// scratch-project/.eslintrc.js
-module.exports = {
-    extends: ['scratch', 'scratch/es6', 'scratch/node']
-};
+// scratch-project/eslint.config.mjs
+import nodeConfig from 'eslint-config-scratch/node';
+export default nodeConfig;
+```
 
-// scratch-project/src/.eslintrc.js
-module.exports = {
-    root: true,
-    extends: ['scratch', 'scratch/es6', 'scratch/react'],
-    env: {
-        browser: true
+```javascript
+// scratch-project/src/eslint.config.mjs
+import webConfig from 'eslint-config-scratch/web';
+
+export default [
+    webConfig,
+    // If you need to add or override settings:
+    {
+        rules: {
+            // ...
+        }
     }
-};
+];
 ```
 
 This will set up all the files in the project for linting as Node.js by default,

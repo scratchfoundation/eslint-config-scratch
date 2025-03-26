@@ -2,13 +2,10 @@
   "name": "eslint-config-scratch",
   "version": "9.0.9",
   "description": "Shareable ESLint config for Scratch",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "prepare": "husky install",
     "test": "eslint ."
-  },
-  "eslintConfig": {
-    "extends": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -25,15 +22,18 @@
     "eslintconfig",
     "scratch"
   ],
-  "optionalDependencies": {
-    "eslint-plugin-react": ">=7.27.0"
-  },
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.11.0",
     "eslint": "^9.23.0"
   },
+  "dependencies": {
+    "@babel/eslint-parser": "7.27.0",
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.23.0",
+    "eslint-plugin-jsdoc": "50.6.9",
+    "eslint-plugin-react": "7.37.4",
+    "globals": "16.0.0"
+  },
   "devDependencies": {
-    "@babel/eslint-parser": "7.26.10",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@commitlint/types": "19.8.0",
