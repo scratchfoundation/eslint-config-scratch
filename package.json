@@ -2,8 +2,9 @@
   "name": "eslint-config-scratch",
   "version": "9.0.9",
   "description": "Shareable ESLint config for Scratch",
-  "main": "./lib/legacy/index.mjs",
+  "main": "./lib/index.mjs",
   "exports": {
+    ".": "./lib/index.mjs",
     "./legacy": "./lib/legacy/index.mjs",
     "./legacy/es6": "./lib/legacy/web.mjs",
     "./legacy/node": "./lib/legacy/node.mjs",
@@ -11,7 +12,9 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "test": "eslint ."
+    "format": "prettier --write . && eslint --fix",
+    "lint": "eslint && prettier --check .",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -35,9 +38,12 @@
     "@babel/eslint-parser": "7.27.0",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.23.0",
+    "@trivago/prettier-plugin-sort-imports": "5.2.2",
+    "eslint-config-prettier": "10.1.1",
     "eslint-plugin-jsdoc": "50.6.9",
     "eslint-plugin-react": "7.37.4",
-    "globals": "16.0.0"
+    "globals": "16.0.0",
+    "prettier": "3.5.3"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.0",

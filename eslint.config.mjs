@@ -1,3 +1,3 @@
-import defaults from './lib/legacy/index.mjs';
+import defaults from './lib/index.mjs';
 
 export default defaults;
