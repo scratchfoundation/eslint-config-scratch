@@ -22,10 +22,10 @@ TODO: update this section!!!
 
 The configuration is split up into several modules:
 
-* `eslint-config-scratch`: The base configuration, not configured for any particular environment
-* `eslint-config-scratch/node`: Rules for targeting Node.js with ESM
-* `eslint-config-scratch/web`: Rules for targeting Scratch's supported web browsers
-* `eslint-config-scratch/react`: Rules for targeting Scratch's supported web browsers with React
+- `eslint-config-scratch`: The base configuration, not configured for any particular environment
+- `eslint-config-scratch/node`: Rules for targeting Node.js with ESM
+- `eslint-config-scratch/web`: Rules for targeting Scratch's supported web browsers
+- `eslint-config-scratch/react`: Rules for targeting Scratch's supported web browsers with React
 
 These configurations are set up for the flat config format required as of `eslint@^9`.
 
@@ -48,23 +48,24 @@ Your config files should be set up like
 
 ```javascript
 // scratch-project/eslint.config.mjs
-import nodeConfig from 'eslint-config-scratch/node';
-export default nodeConfig;
+import nodeConfig from 'eslint-config-scratch/node'
+
+export default nodeConfig
 ```
 
 ```javascript
 // scratch-project/src/eslint.config.mjs
-import webConfig from 'eslint-config-scratch/web';
+import webConfig from 'eslint-config-scratch/web'
 
 export default [
-    webConfig,
-    // If you need to add or override settings:
-    {
-        rules: {
-            // ...
-        }
-    }
-];
+  webConfig,
+  // If you need to add or override settings:
+  {
+    rules: {
+      // ...
+    },
+  },
+]
 ```
 
 This will set up all the files in the project for linting as Node.js by default,
@@ -84,10 +85,10 @@ just use this:
 Scratch used very different styling rules in `eslint-config-scratch@^9` and below. If you need to use those rules, you
 can use the rule sets under `legacy/`:
 
-* `eslint-config-scratch/legacy`: Legacy base configuration, not configured for any particular environment
-* `eslint-config-scratch/legacy/es6`: Legacy rules for targeting Scratch's supported web browsers
-* `eslint-config-scratch/legacy/node`: Legacy rules for targeting Node.js
-* `eslint-config-scratch/legacy/react`: Legacy rules for targeting Scratch's supported web browsers with React
+- `eslint-config-scratch/legacy`: Legacy base configuration, not configured for any particular environment
+- `eslint-config-scratch/legacy/es6`: Legacy rules for targeting Scratch's supported web browsers
+- `eslint-config-scratch/legacy/node`: Legacy rules for targeting Node.js
+- `eslint-config-scratch/legacy/react`: Legacy rules for targeting Scratch's supported web browsers with React
 
 New projects should not use these rule sets. They may disappear in the future.
 
@@ -115,16 +116,16 @@ applicable.
 
 `type` is one of:
 
-* `fix`: A bug fix **Causes a patch release (0.0.x)**
-* `feat`: A new feature **Causes a minor release (0.x.0)**
-* `docs`: Documentation only changes
-* `style`: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* `refactor`: A code change that neither fixes a bug nor adds a feature
-* `perf`: A code change that improves performance **May or may not cause a minor release. It's not clear.**
-* `test`: Adding missing tests or correcting existing tests
-* `ci`: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
-* `chore`: Other changes that don't modify src or test files
-* `revert`: Reverts a previous commit
+- `fix`: A bug fix **Causes a patch release (0.0.x)**
+- `feat`: A new feature **Causes a minor release (0.x.0)**
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance **May or may not cause a minor release. It's not clear.**
+- `test`: Adding missing tests or correcting existing tests
+- `ci`: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+- `chore`: Other changes that don't modify src or test files
+- `revert`: Reverts a previous commit
 
 Use the [commitizen CLI](https://github.com/commitizen/cz-cli) to make commits
 formatted in this way:
@@ -140,6 +141,6 @@ Now you're ready to make commits using `git cz`.
 
 If you're committing a change that makes the linter more strict, or will
 otherwise require changes to existing code, ensure your commit specifies a
-breaking change.  In your commit body, prefix the changes with "BREAKING CHANGE: "
+breaking change. In your commit body, prefix the changes with "BREAKING CHANGE: "
 This will cause a major version bump so downstream projects must choose to upgrade
 the config and will not break the build unexpectedly.
