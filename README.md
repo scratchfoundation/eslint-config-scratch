@@ -18,6 +18,8 @@ npm install -DE eslint-plugin-react@^7
 
 ## Usage
 
+TODO: update this section!!!
+
 The configuration is split up into several modules:
 
 * `eslint-config-scratch`: The base configuration, not configured for any particular environment
@@ -68,13 +70,26 @@ export default [
 This will set up all the files in the project for linting as Node.js by default,
 except for those in `src/`, which will be linted as ES6 and React files.
 
-If you're linting React, also make sure your lint script lints `.jsx` files:
+In most cases, you won't need to specify the file names or extensions that `eslint` should check. You can probably
+just use this:
 
 ```json
 "scripts": {
-    "lint": "eslint . --ext .js,.jsx"
+    "lint": "eslint"
 }
 ```
+
+## Legacy Styles
+
+Scratch used very different styling rules in `eslint-config-scratch@^9` and below. If you need to use those rules, you
+can use the rule sets under `legacy/`:
+
+* `eslint-config-scratch/legacy`: Legacy base configuration, not configured for any particular environment
+* `eslint-config-scratch/legacy/es6`: Legacy rules for targeting Scratch's supported web browsers
+* `eslint-config-scratch/legacy/node`: Legacy rules for targeting Node.js
+* `eslint-config-scratch/legacy/react`: Legacy rules for targeting Scratch's supported web browsers with React
+
+New projects should not use these rule sets. They may disappear in the future.
 
 ## Committing
 
