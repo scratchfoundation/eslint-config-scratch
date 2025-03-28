@@ -29,6 +29,7 @@
   "keywords": [
     "eslint",
     "eslintconfig",
+    "prettier",
     "scratch"
   ],
   "peerDependencies": {

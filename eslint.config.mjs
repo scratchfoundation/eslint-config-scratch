@@ -1,4 +1,4 @@
-import { makeScratchConfig } from './lib/index.mjs'
+import { makeEslintConfig } from './lib/index.mjs'
 
 /** @type {import('typescript-eslint').ConfigArray} */
-export default makeScratchConfig({ globals: 'node' })
+export default makeEslintConfig({ globals: 'node' })
