@@ -2,13 +2,20 @@
   "name": "eslint-config-scratch",
   "version": "9.0.9",
   "description": "Shareable ESLint config for Scratch",
-  "main": "index.js",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "node": "./lib/node.mjs",
+    "react": "./lib/react.mjs",
+    "web": "./lib/web.mjs",
+    "legacy": "./lib/legacy/index.mjs",
+    "legacy/es6": "./lib/legacy/es6.mjs",
+    "legacy/node": "./lib/legacy/node.mjs",
+    "legacy/react": "./lib/legacy/react.mjs"
+  },
+  "main": "index.mjs",
   "scripts": {
     "prepare": "husky install",
-    "test": "eslint ."
-  },
-  "eslintConfig": {
-    "extends": "./index.js"
+    "test": "eslint"
   },
   "repository": {
     "type": "git",
@@ -30,14 +37,14 @@
   },
   "peerDependencies": {
     "@babel/eslint-parser": "^7.11.0",
-    "eslint": "^8.0.0"
+    "eslint": "^9.23.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.27.0",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@commitlint/types": "19.8.0",
-    "eslint": "8.57.1",
+    "eslint": "9.23.0",
     "husky": "8.0.3",
     "scratch-semantic-release-config": "3.0.0",
     "semantic-release": "24.2.3"
@@ -46,5 +53,14 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.23.0",
+    "@stylistic/eslint-plugin": "4.2.0",
+    "eslint-plugin-html": "^8.1.2",
+    "eslint-plugin-jsdoc": "50.6.9",
+    "eslint-plugin-markdown": "^5.1.0",
+    "globals": "16.0.0"
   }
 }
