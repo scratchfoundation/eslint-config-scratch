@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.0.9...v9.1.0) (2025-03-31)
+
+
+### Features
+
+* enable linting MD and HTML files ([a95140a](https://github.com/scratchfoundation/eslint-config-scratch/commit/a95140a52cffca0614d13751fe5cf9594d045b75))
+
 ## [9.0.9](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.0.8...v9.0.9) (2024-09-11)
 
 
