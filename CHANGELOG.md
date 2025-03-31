@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.1.0...v10.0.0) (2025-03-31)
+
+
+* chore!: major version bump for next-gen style rules ([3687676](https://github.com/scratchfoundation/eslint-config-scratch/commit/368767667304775ef75e5c440cf9958f94e0b0a1))
+
+
+### BREAKING CHANGES
+
+* There have been several major style changes since
+v9.0.9, and they were accidentally released as v9.1.0 at first. This
+commit is meant to force a bump to v10.
+
 # [9.1.0](https://github.com/scratchfoundation/eslint-config-scratch/compare/v9.0.9...v9.1.0) (2025-03-31)
 
 
