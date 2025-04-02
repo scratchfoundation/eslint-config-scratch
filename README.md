@@ -100,21 +100,22 @@ export default makeEslintConfig({
 
 ### Further Customization
 
-The return value of the `makeEslintConfig` function is a standard ESLint configuration array. This means you can
-customize your configuration further like this:
+The first parameter to `makeEslintConfig` is covered above. Any further parameters passed to `makeEslintConfig` are
+appended to the resulting ESLint configuration array. This means you can customize your configuration further like
+this:
 
 ```mjs
 // myProjectRoot/eslint.config.mjs
 import { makeEslintConfig } from 'eslint-config-scratch'
 
-export default [
-  ...makeEslintConfig({
+export default makeEslintConfig(
+  {
     // Optional: enables rules that use type info, some of which work in JS too
     tsconfigRootDir: import.meta.dirname,
 
     // Optional: specify global variables available in your environment
     globals: 'browser',
-  }),
+  },
   // Add custom rules or overrides here
   {
     files: ['*.test.js'],
@@ -122,8 +123,11 @@ export default [
       'no-console': 'off', // Allow console logs in test files
     },
   },
-]
+)
 ```
+
+You could concatenate more configuration objects onto the array returned by `makeEslintConfig` with equivalent
+results, but this approach offers better editor hints for autocomplete and type checking.
 
 All ESLint configuration options are available this way. You can use this to handle globals yourself if the simplified
 `globals` configuration from above doesn't meet your needs:
@@ -133,11 +137,11 @@ All ESLint configuration options are available this way. You can use this to han
 import { makeEslintConfig } from 'eslint-config-scratch'
 import globals from 'globals'
 
-export default [
-  ...makeEslintConfig({
+export default makeEslintConfig(
+  {
     // Optional: enables rules that use type info, some of which work in JS too
     tsconfigRootDir: import.meta.dirname,
-  }),
+  },
   {
     files: ['src/main/**.js'],
     languageOptions: {
@@ -153,7 +157,7 @@ export default [
       },
     },
   },
-]
+)
 ```
 
 Of course, another option would be to place a different `eslint.config.mjs` file in each subdirectory. If you have
@@ -172,6 +176,17 @@ can use the rule sets under `legacy/`:
 
 New projects should not use these rule sets. They may disappear in the future. Scratch did not use Prettier at this
 time, so there is no legacy Prettier configuration.
+
+Use these rule sets by importing them directly:
+
+```mjs
+// myProjectRoot/eslint.config.mjs
+import webConfig from 'eslint-config-scratch/legacy/es6'
+import { globalIgnores } from 'eslint/config'
+
+/** @returns {import('eslint').Linter.Config[]} */
+export default [...webConfig, globalIgnores(['dist/**/*'])]
+```
 
 ## Committing
 
