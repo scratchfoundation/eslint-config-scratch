@@ -3,13 +3,6 @@
   "version": "10.0.12",
   "description": "Shareable ESLint config for Scratch",
   "main": "./lib/index.mjs",
-  "exports": {
-    ".": "./lib/index.mjs",
-    "./legacy": "./lib/legacy/index.mjs",
-    "./legacy/es6": "./lib/legacy/web.mjs",
-    "./legacy/node": "./lib/legacy/node.mjs",
-    "./legacy/react": "./lib/legacy/react.mjs"
-  },
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write . && eslint --fix",

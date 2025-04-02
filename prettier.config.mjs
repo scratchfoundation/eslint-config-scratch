@@ -1,3 +1,3 @@
-import { makePrettierConfig } from './lib/prettier.mjs'
+import { prettierConfigScratch } from './lib/index.mjs'
 
-export default makePrettierConfig()
+export default prettierConfigScratch.recommended
