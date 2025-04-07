@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.2](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.1...v10.0.2) (2025-04-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-react to v7.37.5 ([#217](https://github.com/scratchfoundation/eslint-config-scratch/issues/217)) ([2162790](https://github.com/scratchfoundation/eslint-config-scratch/commit/2162790b8f96d2f6d91b06f7a3a992af58664f8e))
+
 ## [10.0.1](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.0...v10.0.1) (2025-04-03)
 
 
