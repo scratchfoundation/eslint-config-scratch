@@ -12,28 +12,31 @@ Install the config along with its peer dependencies, `eslint` and `prettier`:
 npm install -D eslint-config-scratch eslint@^9 prettier@^3
 ```
 
-Add `eslint.config.mjs` to your project root and, optionally, configure parser options for rules that require type
-information:
+Add `eslint.config.mjs` to your project root.
+
+For a TypeScript project, you can add `languageOptions` to enable type checking:
 
 ```js
 // myProjectRoot/eslint.config.mjs
 import { eslintConfigScratch } from 'eslint-config-scratch'
 
-// for plain JavaScript:
-export default eslintConfigScratch.recommended
-
-// for a TypeScript project:
-export default eslintConfigScratch.config(
-  eslintConfigScratch.recommended,
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    }
+export default eslintConfigScratch.config(eslintConfigScratch.recommended, {
+  languageOptions: {
+    parserOptions: {
+      projectService: true,
+      tsconfigRootDir: import.meta.dirname,
+    },
   },
-)
+})
+```
+
+For a JavaScript project, it might look like this:
+
+```js
+// myProjectRoot/eslint.config.mjs
+import { eslintConfigScratch } from 'eslint-config-scratch'
+
+export default eslintConfigScratch.recommended
 ```
 
 The function `eslintConfigScratch.config` is a re-export of the `config` function from `typescript-eslint`, and helps

@@ -6,8 +6,9 @@
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --write . && eslint --fix",
-    "lint": "eslint && prettier --check .",
-    "test": "npm run lint"
+    "test:lint": "eslint && prettier --check .",
+    "test:vitest": "vitest run",
+    "test": "npm run test:lint && npm run test:vitest"
   },
   "repository": {
     "type": "git",
@@ -54,7 +55,8 @@
     "eslint": "9.25.1",
     "husky": "8.0.3",
     "scratch-semantic-release-config": "3.0.0",
-    "semantic-release": "24.2.3"
+    "semantic-release": "24.2.3",
+    "vitest": "^3.1.1"
   },
   "config": {
     "commitizen": {
