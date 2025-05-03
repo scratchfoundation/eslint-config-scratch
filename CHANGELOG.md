@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.14](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.13...v10.0.14) (2025-05-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/eslint-parser to v7.27.1 ([#230](https://github.com/scratchfoundation/eslint-config-scratch/issues/230)) ([cb5cbe2](https://github.com/scratchfoundation/eslint-config-scratch/commit/cb5cbe29e017a67ceb967b9ed716a1360a740d61))
+
 ## [10.0.13](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.12...v10.0.13) (2025-05-01)
 
 
