@@ -12,26 +12,43 @@ Install the config along with its peer dependencies, `eslint` and `prettier`:
 npm install -D eslint-config-scratch eslint@^9 prettier@^3
 ```
 
-Add `eslint.config.mjs` to your project root (pick the `export` line appropriate for your project):
+Add `eslint.config.mjs` to your project root.
+
+For a TypeScript project, you can add `languageOptions` to enable type checking:
 
 ```js
 // myProjectRoot/eslint.config.mjs
-import { makeEslintConfig } from 'eslint-config-scratch'
+import { eslintConfigScratch } from 'eslint-config-scratch'
 
-// for a TypeScript project:
-export default makeEslintConfig({ globals: 'browser', tsconfigRootDir: import.meta.dirname })
-
-// for plain JavaScript:
-export default makeEslintConfig({ globals: 'browser' })
+export default eslintConfigScratch.config(eslintConfigScratch.recommended, {
+  languageOptions: {
+    parserOptions: {
+      projectService: true,
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
+
+For a JavaScript project, it might look like this:
+
+```js
+// myProjectRoot/eslint.config.mjs
+import { eslintConfigScratch } from 'eslint-config-scratch'
+
+export default eslintConfigScratch.recommended
+```
+
+The function `eslintConfigScratch.config` is a re-export of the `config` function from `typescript-eslint`, and helps
+with merging and extending configurations.
 
 Add `prettier.config.mjs` to your project root as well:
 
 ```js
 // myProjectRoot/prettier.config.mjs
-import { makePrettierConfig } from 'eslint-config-scratch'
+import { prettierConfigScratch } from 'eslint-config-scratch'
 
-export default makePrettierConfig()
+export default prettierConfigScratch.recommended
 ```
 
 Finally, add scripts like these to your `package.json`:
@@ -45,133 +62,89 @@ Finally, add scripts like these to your `package.json`:
 
 ## Basic Configuration
 
-The `makeEslintConfig` function takes options to adjust the ESLint configuration object for your project. Most
-projects should start with something like this:
+The `eslintConfigScratch.config` is a re-export of the `config` function from `typescript-eslint`. Full documentation
+is available here: <https://typescript-eslint.io/packages/typescript-eslint#config>.
 
-```mjs
+The `config` function can be used to add or override rules, plugins, and other configuration options. For example:
+
+```js
 // myProjectRoot/eslint.config.mjs
-import { makeEslintConfig } from 'eslint-config-scratch'
-
-export default makeEslintConfig({
-  // Optional: specify global variables available in your environment
-  globals: 'browser',
-
-  // Optional: enables rules that use type info, some of which work in JS too
-  tsconfigRootDir: import.meta.dirname,
-})
-```
-
-If you have no `tsconfig.json` (or `jsconfig.json`) in your project, you can skip the `tsconfigRootDir` option. Rules
-that require type information will be disabled or replaced with less strict alternatives that work without type info.
-
-### Globals
-
-The `globals` property is optional. If present, it can take several forms:
-
-- a string, interpreted as a key in the `globals` object exported by the `globals` package.
-  - Examples: `'browser'`, `'node'`, `'es2021'`, `'jest'`, etc.
-- an object, set up as described in the "Specifying Globals" section of the [ESLint documentation](https://eslint.org/docs/latest/use/configure/language-options#using-configuration-files)
-  - Example: `{ myGlobal: 'readonly', anotherGlobal: 'writable' }`
-- an array of zero or more of any mixture of the above
-
-```mjs
-// myProjectRoot/eslint.config.mjs
-import { makeEslintConfig } from 'eslint-config-scratch'
-
-export default makeEslintConfig({
-  // Optional: enables rules that use type info, some of which work in JS too
-  tsconfigRootDir: import.meta.dirname,
-
-  // Optional: specify global variables available in your environment
-  // Warning: this is a very silly configuration
-  globals: [
-    'shared-node-browser',
-    {
-      fun: 'readonly',
-      thing: false,
-    },
-    'es2021',
-    {
-      whyNot: 'writable',
-    },
-  ],
-})
-```
-
-### Further Customization
-
-The return value of the `makeEslintConfig` function is a standard ESLint configuration array. This means you can
-customize your configuration further like this:
-
-```mjs
-// myProjectRoot/eslint.config.mjs
-import { makeEslintConfig } from 'eslint-config-scratch'
-
-export default [
-  ...makeEslintConfig({
-    // Optional: enables rules that use type info, some of which work in JS too
-    tsconfigRootDir: import.meta.dirname,
-
-    // Optional: specify global variables available in your environment
-    globals: 'browser',
-  }),
-  // Add custom rules or overrides here
-  {
-    files: ['*.test.js'],
-    rules: {
-      'no-console': 'off', // Allow console logs in test files
-    },
-  },
-]
-```
-
-All ESLint configuration options are available this way. You can use this to handle globals yourself if the simplified
-`globals` configuration from above doesn't meet your needs:
-
-```mjs
-// myProjectRoot/eslint.config.mjs
-import { makeEslintConfig } from 'eslint-config-scratch'
+import { eslintConfigScratch } from 'eslint-config-scratch'
+import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 
-export default [
-  ...makeEslintConfig({
-    // Optional: enables rules that use type info, some of which work in JS too
-    tsconfigRootDir: import.meta.dirname,
-  }),
+export default eslintConfigScratch.config(
+  eslintConfigScratch.recommended,
   {
-    files: ['src/main/**.js'],
-    languageOptions: {
-      globals: globals.node,
-    },
-  },
-  {
-    files: ['src/renderer/**.js'],
     languageOptions: {
       globals: {
-        ...globals.browser,
+        ...globals.node,
         MY_CUSTOM_GLOBAL: 'readonly',
+      },
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
-]
+  // Ignore all files in the dist directory
+  globalIgnores(['dist/**/*']),
+)
 ```
 
-Of course, another option would be to place a different `eslint.config.mjs` file in each subdirectory. If you have
-multiple `tsconfig.json` or `jsconfig.json` files in your project, it likely makes sense to have an
-`eslint.config.mjs` file beside each one.
+## Granular Configuration
+
+The `eslintConfigScratch` object contains granular configurations as well:
+
+- `recommendedTypeFree`: A configuration suitable for contexts without type information, such as a JavaScript project.
+- `recommendedTypeChecked`: A configuration suitable for contexts with type information, such as a TypeScript project.
+  You must provide extra configuration to `parserOptions` to enable type checking. See here:
+  <https://typescript-eslint.io/getting-started/typed-linting/>
+
+The `recommended` configuration is a combination of the two, and should be suitable for most projects. Features
+requiring type information are enabled for TypeScript files, and features that don't require type information are
+enabled for all files.
 
 ## Legacy Styles
 
 Scratch used very different styling rules in `eslint-config-scratch@^9` and below. If you need to use those rules, you
-can use the rule sets under `legacy/`:
+can use these legacy configurations:
 
-- `eslint-config-scratch/legacy`: Legacy base configuration, not configured for any particular environment
-- `eslint-config-scratch/legacy/es6`: Legacy rules for targeting Scratch's supported web browsers
-- `eslint-config-scratch/legacy/node`: Legacy rules for targeting Node.js
-- `eslint-config-scratch/legacy/react`: Legacy rules for targeting Scratch's supported web browsers with React
+- `eslintConfigScratch.legacy.base`: Legacy base configuration, not configured for any particular environment
+- `eslintConfigScratch.legacy.es6`: Legacy rules for targeting Scratch's supported web browsers
+- `eslintConfigScratch.legacy.node`: Legacy rules for targeting Node.js
+- `eslintConfigScratch.legacy.react`: Legacy rules for targeting Scratch's supported web browsers with React
 
 New projects should not use these rule sets. They may disappear in the future. Scratch did not use Prettier at this
 time, so there is no legacy Prettier configuration.
+
+Legacy Scratch projects usually `extend` more than one of these at a time, and potentially a different set per
+subdirectory. To do that in this new flat configuration format:
+
+```js
+// scratch-gui/eslint.config.mjs
+import { eslintConfigScratch } from 'eslint-config-scratch'
+import { globalIgnores } from 'eslint/config'
+import globals from 'globals'
+
+export default eslintConfigScratch.config(
+  eslintConfigScratch.legacy.base,
+  eslintConfigScratch.legacy.es6,
+  {
+    files: ['src/**/*.js', 'src/**/*.jsx'],
+    extends: [eslintConfigScratch.legacy.react],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    rules: {
+      // ...customized rules for `src/`...
+    },
+    // ...other settings for `src/`...
+  },
+  // ...settings for `test/`, etc...
+  globalIgnores(['dist/**/*']),
+)
+```
 
 ## Committing
 
