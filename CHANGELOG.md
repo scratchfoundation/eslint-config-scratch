@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.14...v11.0.0) (2025-05-05)
+
+
+### Bug Fixes
+
+* be more careful about ext => rule mapping ([d010853](https://github.com/scratchfoundation/eslint-config-scratch/commit/d01085335cbe81df389a18e590120a3c5085ecfa))
+* disable jsdoc/require-jsdoc ([7d7b277](https://github.com/scratchfoundation/eslint-config-scratch/commit/7d7b277676c772cafeb157b87d0f3205a81f7792))
+* don't try to check types in JS ([329b4de](https://github.com/scratchfoundation/eslint-config-scratch/commit/329b4de61c81be7c2fddd965a08cb2b73017089a))
+* fix linting for code blocks inside Markdown ([152673f](https://github.com/scratchfoundation/eslint-config-scratch/commit/152673ff3918a0f68e2401595c68f06c49eac711))
+* re-enable jsdoc checks ([40c86c9](https://github.com/scratchfoundation/eslint-config-scratch/commit/40c86c94ca7d3dfa713d139fa28ef4b544b1b131))
+
+
+* refactor!: simplify and flatten configurations ([a7dda10](https://github.com/scratchfoundation/eslint-config-scratch/commit/a7dda101f27c3099f024f1eb53533ee3cc97194f))
+
+
+### Features
+
+* better type help, esp. with makeEslintConfig ([497bd28](https://github.com/scratchfoundation/eslint-config-scratch/commit/497bd2880ba7640966e5f87fc3d4bd5b482eb303))
+
+
+### BREAKING CHANGES
+
+* Configurations are now returned as objects, like most
+shared ESLint configurations. The `make*Config` functions are no more.
+Also, everything is now exported through one file.
+
 ## [10.0.14](https://github.com/scratchfoundation/eslint-config-scratch/compare/v10.0.13...v10.0.14) (2025-05-03)
 
 
