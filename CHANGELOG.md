@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.18](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.17...v11.0.18) (2025-06-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @eslint/markdown to v6.5.0 ([#256](https://github.com/scratchfoundation/eslint-config-scratch/issues/256)) ([db05445](https://github.com/scratchfoundation/eslint-config-scratch/commit/db05445bc8f0aa1b7402164af71c109d2f1af3ea))
+
 ## [11.0.17](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.16...v11.0.17) (2025-06-07)
 
 
