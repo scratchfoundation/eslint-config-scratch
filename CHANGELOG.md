@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.25](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.24...v11.0.25) (2025-06-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-import to v2.32.0 ([#266](https://github.com/scratchfoundation/eslint-config-scratch/issues/266)) ([c0dc462](https://github.com/scratchfoundation/eslint-config-scratch/commit/c0dc462879fbc1501b4c403a62a6dab2f5941908))
+
 ## [11.0.24](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.23...v11.0.24) (2025-06-24)
 
 
