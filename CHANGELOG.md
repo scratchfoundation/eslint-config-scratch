@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.28](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.27...v11.0.28) (2025-06-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency prettier to v3.6.1 ([#269](https://github.com/scratchfoundation/eslint-config-scratch/issues/269)) ([5a913eb](https://github.com/scratchfoundation/eslint-config-scratch/commit/5a913eb30ac72ddeae8eeac6327e878f919d8bce))
+
 ## [11.0.27](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.26...v11.0.27) (2025-06-27)
 
 
