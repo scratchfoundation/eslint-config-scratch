@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.32](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.31...v11.0.32) (2025-07-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency globals to v16.3.0 ([#274](https://github.com/scratchfoundation/eslint-config-scratch/issues/274)) ([044cee5](https://github.com/scratchfoundation/eslint-config-scratch/commit/044cee5ebee95023ebab773eb0434f2c2352c5c9))
+
 ## [11.0.31](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.30...v11.0.31) (2025-07-03)
 
 
