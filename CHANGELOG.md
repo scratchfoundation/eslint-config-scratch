@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.43](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.42...v11.0.43) (2025-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript-eslint to v8.39.1 ([#290](https://github.com/scratchfoundation/eslint-config-scratch/issues/290)) ([182a263](https://github.com/scratchfoundation/eslint-config-scratch/commit/182a263ad7220c56df75c955a911d45c29f3a190))
+
 ## [11.0.42](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.41...v11.0.42) (2025-08-12)
 
 
