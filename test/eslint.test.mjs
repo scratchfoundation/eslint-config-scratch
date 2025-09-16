@@ -17,7 +17,7 @@ import { beforeAll, describe, expect, test } from 'vitest'
 const testInfo = {
   recommended: [
     {
-      name: 'plain JS (good)',
+      name: 'Plain JS (good)',
       filePath: 'plain.good.mjs',
       warningCount: 0,
       errorCount: 0,
@@ -29,7 +29,7 @@ const testInfo = {
       errorCount: 0,
     },
     {
-      name: 'plain JS (bad)',
+      name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
       errorCount: 3,
@@ -94,7 +94,7 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
     results = await eslint.lintFiles(testList.map(info => path.resolve(import.meta.dirname, subdir, info.filePath)))
   })
 
-  test('results container', () => {
+  test('Results container', () => {
     expect(results).toBeDefined()
     expect(results.length).toBe(testList.length)
   })
