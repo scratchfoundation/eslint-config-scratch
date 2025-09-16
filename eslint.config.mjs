@@ -2,7 +2,7 @@ import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import { eslintConfigScratch } from './lib/index.mjs'
 
-export default eslintConfigScratch.config(
+export default eslintConfigScratch.defineConfig(
   eslintConfigScratch.recommended,
   {
     languageOptions: {

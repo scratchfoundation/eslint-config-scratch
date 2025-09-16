@@ -20,7 +20,7 @@ For a TypeScript project, you can add `languageOptions` to enable type checking:
 // myProjectRoot/eslint.config.mjs
 import { eslintConfigScratch } from 'eslint-config-scratch'
 
-export default eslintConfigScratch.config(eslintConfigScratch.recommended, {
+export default eslintConfigScratch.defineConfig(eslintConfigScratch.recommended, {
   languageOptions: {
     parserOptions: {
       projectService: true,
@@ -39,8 +39,8 @@ import { eslintConfigScratch } from 'eslint-config-scratch'
 export default eslintConfigScratch.recommended
 ```
 
-The function `eslintConfigScratch.config` is a re-export of the `config` function from `typescript-eslint`, and helps
-with merging and extending configurations.
+The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `@eslint/config`,
+and helps with merging and extending configurations.
 
 Add `prettier.config.mjs` to your project root as well:
 
@@ -62,8 +62,9 @@ Finally, add scripts like these to your `package.json`:
 
 ## Basic Configuration
 
-The `eslintConfigScratch.config` is a re-export of the `config` function from `typescript-eslint`. Full documentation
-is available here: <https://typescript-eslint.io/packages/typescript-eslint#config>.
+The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `@eslint/config`,
+and helps with merging and extending configurations. Full documentation is available here:
+<https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/#introducing-defineconfig()-for-eslint>.
 
 The `config` function can be used to add or override rules, plugins, and other configuration options. For example:
 
@@ -73,7 +74,7 @@ import { eslintConfigScratch } from 'eslint-config-scratch'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 
-export default eslintConfigScratch.config(
+export default eslintConfigScratch.defineConfig(
   eslintConfigScratch.recommended,
   {
     languageOptions: {
@@ -127,7 +128,7 @@ import { eslintConfigScratch } from 'eslint-config-scratch'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 
-export default eslintConfigScratch.config(
+export default eslintConfigScratch.defineConfig(
   eslintConfigScratch.legacy.base,
   eslintConfigScratch.legacy.es6,
   {
