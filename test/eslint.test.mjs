@@ -4,6 +4,10 @@ import util from 'util'
 import { beforeAll, describe, expect, test } from 'vitest'
 
 /**
+ * @import { Linter } from 'eslint'
+ */
+
+/**
  * @typedef {object} EslintTestInfo
  * @property {string} name - the title/message for this test
  * @property {string} filePath - the path to the file to lint
@@ -96,7 +100,7 @@ const testInfo = {
 /**
  * Create a snapshot of a lint message.
  * Excludes properties that may change without affecting correctness, such as human-readable text.
- * @param {ESLint.LintMessage} result - the lint message to filter
+ * @param {Linter.LintMessage} result - the lint message to filter
  * @returns {object} a filtered snapshot of the lint message
  */
 const messageSnapshot = result =>

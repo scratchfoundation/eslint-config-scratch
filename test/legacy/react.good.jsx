@@ -1,4 +1,4 @@
-import ESLint from 'eslint';
+import {ESLint} from 'eslint';
 import React from 'react';
 
 const foo = () => {

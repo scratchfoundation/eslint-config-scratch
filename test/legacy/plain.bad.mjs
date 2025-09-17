@@ -1,4 +1,4 @@
-import ESLint from 'eslint';
+import {ESLint} from 'eslint';
 
 // foo isn't used
 const foo = () => {

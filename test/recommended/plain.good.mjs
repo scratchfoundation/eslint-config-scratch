@@ -1,4 +1,4 @@
-import ESLint from 'eslint'
+import { ESLint } from 'eslint'
 
 function foo() {
   const eslint = new ESLint({
