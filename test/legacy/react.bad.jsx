@@ -1,7 +1,7 @@
 import {ESLint} from 'eslint';
 import React from 'react';
 
-// foo isn't used
+// @typescript-eslint/no-unused-vars
 const foo = () => {
     const eslint = new ESLint({
         overrideConfigFile: true
