@@ -1,5 +1,75 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`'legacy' > Plain JS (bad) 1`] = `
+[
+  {
+    "column": 7,
+    "endColumn": 10,
+    "endLine": 4,
+    "line": 4,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+  },
+  {
+    "column": 26,
+    "endColumn": 31,
+    "endLine": 13,
+    "line": 13,
+    "messageId": "notInScope",
+    "nodeType": "JSXOpeningElement",
+    "ruleId": "react/react-in-jsx-scope",
+  },
+  {
+    "column": 26,
+    "endColumn": 46,
+    "endLine": 13,
+    "line": 13,
+    "messageId": "noJSXWithExtension",
+    "nodeType": "JSXElement",
+    "ruleId": "react/jsx-filename-extension",
+  },
+  {
+    "column": 20,
+    "endColumn": 24,
+    "endLine": 16,
+    "line": 16,
+    "messageId": "undef",
+    "nodeType": "Identifier",
+    "ruleId": "no-undef",
+  },
+]
+`;
+
+exports[`'legacy' > Plain JS (good) 1`] = `[]`;
+
+exports[`'legacy' > Plain TS (good) 1`] = `[]`;
+
+exports[`'legacy' > React JSX (bad) 1`] = `
+[
+  {
+    "column": 7,
+    "endColumn": 10,
+    "endLine": 5,
+    "line": 5,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+  },
+  {
+    "column": 20,
+    "endColumn": 24,
+    "endLine": 15,
+    "line": 15,
+    "messageId": "undef",
+    "nodeType": "Identifier",
+    "ruleId": "no-undef",
+  },
+]
+`;
+
+exports[`'legacy' > React JSX (good) 1`] = `[]`;
+
 exports[`'recommended' > Plain JS (bad) 1`] = `
 [
   {

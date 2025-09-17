@@ -1,1 +1,4 @@
 /CHANGELOG.md
+/test/legacy/*
+/test/recommended/*
+/test/__snapshots__/*

@@ -53,6 +53,44 @@ const testInfo = {
       errorCount: 5,
     },
   ],
+  legacy: [
+    {
+      name: 'Plain JS (good)',
+      filePath: 'plain.good.mjs',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'React JSX (good)',
+      filePath: 'react.good.jsx',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'Plain JS (bad)',
+      filePath: 'plain.bad.mjs',
+      warningCount: 0,
+      errorCount: 4,
+    },
+    {
+      name: 'React JSX (bad)',
+      filePath: 'react.bad.jsx',
+      warningCount: 0,
+      errorCount: 2,
+    },
+    {
+      name: 'Plain TS (good)',
+      filePath: 'plain.good.ts',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'Plain TS (bad)',
+      filePath: 'plain.bad.ts',
+      warningCount: 0,
+      errorCount: 5,
+    },
+  ],
 }
 
 /**
