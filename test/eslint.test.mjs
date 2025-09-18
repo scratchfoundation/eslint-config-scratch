@@ -92,7 +92,7 @@ const testInfo = {
       name: 'Plain TS (bad)',
       filePath: 'plain.bad.ts',
       warningCount: 0,
-      errorCount: 5,
+      errorCount: 4,
     },
   ],
 }

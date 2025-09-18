@@ -7,6 +7,12 @@ const config = eslintConfigScratch.defineConfig(
             eslintConfigScratch.legacy.base,
             eslintConfigScratch.legacy.react
         ]
+    },
+    {
+        files: ['**/*.{ts,tsx}'],
+        extends: [
+            eslintConfigScratch.legacy.typescript
+        ]
     }
 );
 

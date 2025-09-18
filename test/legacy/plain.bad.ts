@@ -12,6 +12,5 @@ const foo = (): ESLint => {
     return eslint;
 };
 
-// @typescript-eslint/no-unsafe-call (`foo2` is an error-typed value)
-// @typescript-eslint/no-unsafe-assignment (`foo2()` is an error-typed value)
+// no-undef ('foo2' is not defined)
 export const bar = foo2();
