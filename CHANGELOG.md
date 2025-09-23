@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.53...v12.0.0) (2025-09-23)
+
+
+### Bug Fixes
+
+* **legacy:** forbid JSX syntax outside of JSX/TSX files ([172074c](https://github.com/scratchfoundation/eslint-config-scratch/commit/172074c289b8e308d7cec90406fd907e93a3f7e1))
+* **legacy:** stop TS support from breaking non-TS projects ([b2c62b2](https://github.com/scratchfoundation/eslint-config-scratch/commit/b2c62b222d5f4a4194379deb4ebc79bcc0ffa01a))
+* **legacy:** use TS rules where possible ([335ccb8](https://github.com/scratchfoundation/eslint-config-scratch/commit/335ccb851acec3184e8e42af722509a4937adc96))
+* replace `config` with `defineConfig` ([3b2c7bd](https://github.com/scratchfoundation/eslint-config-scratch/commit/3b2c7bd69908fb3401732d38fee72b5fc221ada2))
+* use @stylistic/indent to work around ts/eslint bug ([63a0d62](https://github.com/scratchfoundation/eslint-config-scratch/commit/63a0d62e30aceb4088a64a14bb11ddfb0f6a3fd2)), closes [typescript-eslint/typescript-eslint#11455](https://github.com/typescript-eslint/typescript-eslint/issues/11455)
+
+
+### Features
+
+* add minimal TS support to legacy rule sets ([2b4d83e](https://github.com/scratchfoundation/eslint-config-scratch/commit/2b4d83eff525854bd8472ea601f023b2a060c463))
+
+
+### BREAKING CHANGES
+
+* **legacy:** TS rules are no longer active in non-TS files unless
+explicitly added through the user's configuration
+* this rule seems to handle a few cases differently.
+* **legacy:** JSX use outside of JSX/TSX files is now forbidden
+* **legacy:** TS rules are now active even in non-TS files
+* while `defineConfig` is almost the same as `config`,
+there are some cases that differ. See:
+<https://typescript-eslint.io/packages/typescript-eslint/#migrating-to-defineconfig>
+
 ## [11.0.53](https://github.com/scratchfoundation/eslint-config-scratch/compare/v11.0.52...v11.0.53) (2025-09-22)
 
 
