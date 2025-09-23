@@ -4,6 +4,10 @@ import util from 'util'
 import { beforeAll, describe, expect, test } from 'vitest'
 
 /**
+ * @import { Linter } from 'eslint'
+ */
+
+/**
  * @typedef {object} EslintTestInfo
  * @property {string} name - the title/message for this test
  * @property {string} filePath - the path to the file to lint
@@ -17,7 +21,7 @@ import { beforeAll, describe, expect, test } from 'vitest'
 const testInfo = {
   recommended: [
     {
-      name: 'plain JS (good)',
+      name: 'Plain JS (good)',
       filePath: 'plain.good.mjs',
       warningCount: 0,
       errorCount: 0,
@@ -29,7 +33,7 @@ const testInfo = {
       errorCount: 0,
     },
     {
-      name: 'plain JS (bad)',
+      name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
       errorCount: 3,
@@ -53,12 +57,50 @@ const testInfo = {
       errorCount: 5,
     },
   ],
+  legacy: [
+    {
+      name: 'Plain JS (good)',
+      filePath: 'plain.good.mjs',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'React JSX (good)',
+      filePath: 'react.good.jsx',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'Plain JS (bad)',
+      filePath: 'plain.bad.mjs',
+      warningCount: 0,
+      errorCount: 4,
+    },
+    {
+      name: 'React JSX (bad)',
+      filePath: 'react.bad.jsx',
+      warningCount: 0,
+      errorCount: 2,
+    },
+    {
+      name: 'Plain TS (good)',
+      filePath: 'plain.good.ts',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'Plain TS (bad)',
+      filePath: 'plain.bad.ts',
+      warningCount: 0,
+      errorCount: 4,
+    },
+  ],
 }
 
 /**
  * Create a snapshot of a lint message.
  * Excludes properties that may change without affecting correctness, such as human-readable text.
- * @param {ESLint.LintMessage} result - the lint message to filter
+ * @param {Linter.LintMessage} result - the lint message to filter
  * @returns {object} a filtered snapshot of the lint message
  */
 const messageSnapshot = result =>
@@ -94,7 +136,7 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
     results = await eslint.lintFiles(testList.map(info => path.resolve(import.meta.dirname, subdir, info.filePath)))
   })
 
-  test('results container', () => {
+  test('Results container', () => {
     expect(results).toBeDefined()
     expect(results.length).toBe(testList.length)
   })
