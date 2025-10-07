@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.3](https://github.com/scratchfoundation/eslint-config-scratch/compare/v12.0.2...v12.0.3) (2025-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update eslint monorepo to v9.37.0 ([#319](https://github.com/scratchfoundation/eslint-config-scratch/issues/319)) ([e7ecae5](https://github.com/scratchfoundation/eslint-config-scratch/commit/e7ecae538603e881824f63d0de08c9e05db02155))
+
 ## [12.0.2](https://github.com/scratchfoundation/eslint-config-scratch/compare/v12.0.1...v12.0.2) (2025-10-02)
 
 
