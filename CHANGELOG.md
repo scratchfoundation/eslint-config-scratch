@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.5](https://github.com/scratchfoundation/eslint-config-scratch/compare/v12.0.4...v12.0.5) (2025-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-formatjs to v5.4.2 ([#320](https://github.com/scratchfoundation/eslint-config-scratch/issues/320)) ([b9af814](https://github.com/scratchfoundation/eslint-config-scratch/commit/b9af81499ef9266fba983372643cf9895dddc1a0))
+
 ## [12.0.4](https://github.com/scratchfoundation/eslint-config-scratch/compare/v12.0.3...v12.0.4) (2025-10-09)
 
 
