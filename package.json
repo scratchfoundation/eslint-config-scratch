@@ -4,7 +4,7 @@
   "description": "Shareable ESLint config for Scratch",
   "main": "./lib/index.mjs",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "format": "prettier --write . && eslint --fix",
     "test:lint": "eslint && prettier --check .",
     "test:vitest": "vitest run",
