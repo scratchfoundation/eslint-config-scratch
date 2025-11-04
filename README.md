@@ -14,20 +14,27 @@ npm install -D eslint-config-scratch eslint@^9 prettier@^3
 
 Add `eslint.config.mjs` to your project root.
 
-For a TypeScript project, you can add `languageOptions` to enable type checking:
+For a TypeScript project, you can add `languageOptions` to enable type checking. For example, if your `tsconfig.json`
+covers files under `src/`, and you want to ignore `dist/` and `node_modules/`, your configuration might look like this:
 
 ```js
 // myProjectRoot/eslint.config.mjs
 import { eslintConfigScratch } from 'eslint-config-scratch'
+import { globalIgnores } from 'eslint/config'
 
-export default eslintConfigScratch.defineConfig(eslintConfigScratch.recommended, {
-  languageOptions: {
-    parserOptions: {
-      projectService: true,
-      tsconfigRootDir: import.meta.dirname,
+export default eslintConfigScratch.defineConfig(
+  eslintConfigScratch.recommended,
+  {
+    files: ['src/**'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
-})
+  globalIgnores(['dist/**', 'node_modules/**']),
+)
 ```
 
 For a JavaScript project, it might look like this:
@@ -77,6 +84,7 @@ import globals from 'globals'
 export default eslintConfigScratch.defineConfig(
   eslintConfigScratch.recommended,
   {
+    files: ['src/**'],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -88,8 +96,8 @@ export default eslintConfigScratch.defineConfig(
       },
     },
   },
-  // Ignore all files in the dist directory
-  globalIgnores(['dist/**/*']),
+  // Ignore all files in the dist and node_modules directories
+  globalIgnores(['dist/**', 'node_modules/**']),
 )
 ```
 
@@ -143,7 +151,7 @@ export default eslintConfigScratch.defineConfig(
     // ...other settings for `src/`...
   },
   // ...settings for `test/`, etc...
-  globalIgnores(['dist/**/*']),
+  globalIgnores(['dist/**', 'node_modules/**']),
 )
 ```
 
