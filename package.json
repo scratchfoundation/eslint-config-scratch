@@ -50,9 +50,9 @@
     "typescript-eslint": "8.46.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.1.0",
-    "@commitlint/config-conventional": "20.0.0",
-    "@commitlint/types": "20.0.0",
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/config-conventional": "20.2.0",
+    "@commitlint/types": "20.2.0",
     "eslint": "9.39.1",
     "husky": "9.1.7",
     "scratch-semantic-release-config": "4.0.0",
