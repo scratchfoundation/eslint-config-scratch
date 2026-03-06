@@ -60,7 +60,7 @@ exports[`'legacy' > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "unusedVar",
-    "nodeType": null,
+    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -69,7 +69,7 @@ exports[`'legacy' > Plain TS (bad) 1`] = `
     "endLine": 8,
     "line": 8,
     "messageId": "unusedVar",
-    "nodeType": null,
+    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -162,7 +162,7 @@ exports[`'recommended' > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "unusedVar",
-    "nodeType": null,
+    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -171,7 +171,7 @@ exports[`'recommended' > Plain TS (bad) 1`] = `
     "endLine": 8,
     "line": 8,
     "messageId": "unusedVar",
-    "nodeType": null,
+    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -188,7 +188,7 @@ exports[`'recommended' > Plain TS (bad) 1`] = `
     "endColumn": 24,
     "endLine": 17,
     "line": 17,
-    "messageId": "unsafeCall",
+    "messageId": "errorCall",
     "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unsafe-call",
   },
