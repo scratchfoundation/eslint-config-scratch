@@ -1,5 +1,4 @@
 import {ESLint} from 'eslint';
-import React from 'react';
 
 const foo = () => {
     const eslint = new ESLint({
