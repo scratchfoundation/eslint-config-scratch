@@ -1,6 +1,6 @@
+import path from 'node:path'
+import util from 'node:util'
 import { ESLint } from 'eslint'
-import path from 'path'
-import util from 'util'
 import { beforeAll, describe, expect, test } from 'vitest'
 
 /**
@@ -74,7 +74,7 @@ const testInfo = {
       name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
-      errorCount: 4,
+      errorCount: 3,
     },
     {
       name: 'React JSX (bad)',
@@ -103,7 +103,7 @@ const testInfo = {
  * @param {Linter.LintMessage} result - the lint message to filter
  * @returns {object} a filtered snapshot of the lint message
  */
-const messageSnapshot = result =>
+const messageSnapshot = (result) =>
   Object.fromEntries(
     Object.entries(result).filter(([k]) =>
       ['line', 'column', 'endLine', 'endColumn', 'messageId', 'nodeType', 'ruleId'].includes(k),
@@ -133,7 +133,7 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
     const eslint = new ESLint({
       overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'eslint.config.mjs'),
     })
-    results = await eslint.lintFiles(testList.map(info => path.resolve(import.meta.dirname, subdir, info.filePath)))
+    results = await eslint.lintFiles(testList.map((info) => path.resolve(import.meta.dirname, subdir, info.filePath)))
   })
 
   test('Results container', () => {

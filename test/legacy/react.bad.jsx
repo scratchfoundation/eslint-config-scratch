@@ -1,5 +1,4 @@
 import {ESLint} from 'eslint';
-import React from 'react';
 
 // @typescript-eslint/no-unused-vars
 const foo = () => {

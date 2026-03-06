@@ -9,7 +9,6 @@ const foo = () => {
 };
 
 // React isn't allowed in plain JS
-// React must be in scope when using JSX
 export const myElement = <div>{'hello'}</div>;
 
 // foo2 isn't defined
