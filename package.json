@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-scratch",
-  "version": "14.0.12",
+  "version": "14.0.13",
   "description": "Shareable ESLint config for Scratch",
   "main": "./lib/index.mjs",
   "scripts": {
