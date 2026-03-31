@@ -15,3 +15,15 @@ function foo(): ESLint {
 // @typescript-eslint/no-unsafe-call (`foo2` is an error-typed value)
 // @typescript-eslint/no-unsafe-assignment (`foo2()` is an error-typed value)
 export const bar = foo2()
+
+// @typescript-eslint/no-unused-vars: array destructuring requires _ prefix
+export function badArray(arr: number[]) {
+  const [first, second] = arr
+  return second
+}
+
+// @typescript-eslint/no-unused-vars: object rest sibling requires _ prefix
+export function badRest(obj: { prop: string; bar: number }) {
+  const { prop, ...rest } = obj
+  return rest
+}

@@ -131,6 +131,24 @@ exports[`'recommended' > Plain JS (bad) 1`] = `
     "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
+  {
+    "column": 10,
+    "endColumn": 15,
+    "endLine": 19,
+    "line": 19,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+  },
+  {
+    "column": 11,
+    "endColumn": 15,
+    "endLine": 25,
+    "line": 25,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+  },
 ]
 `;
 
@@ -182,6 +200,24 @@ exports[`'recommended' > Plain TS (bad) 1`] = `
     "messageId": "errorCall",
     "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unsafe-call",
+  },
+  {
+    "column": 10,
+    "endColumn": 15,
+    "endLine": 21,
+    "line": 21,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
+  },
+  {
+    "column": 11,
+    "endColumn": 15,
+    "endLine": 27,
+    "line": 27,
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
   },
 ]
 `;

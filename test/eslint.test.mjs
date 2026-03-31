@@ -36,7 +36,7 @@ const testInfo = {
       name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
-      errorCount: 3,
+      errorCount: 5,
     },
     {
       name: 'React JSX (bad)',
@@ -54,7 +54,7 @@ const testInfo = {
       name: 'Plain TS (bad)',
       filePath: 'plain.bad.ts',
       warningCount: 0,
-      errorCount: 5,
+      errorCount: 7,
     },
   ],
   legacy: [
