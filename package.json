@@ -33,7 +33,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "4.7.2",
     "@eslint/eslintrc": "3.3.5",
     "@eslint/js": "9.39.4",
-    "@eslint/markdown": "8.0.2",
+    "@eslint/markdown": "8.0.3",
     "@stylistic/eslint-plugin": "5.10.0",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
     "eslint-config-prettier": "10.1.8",
