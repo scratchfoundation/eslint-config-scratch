@@ -57,7 +57,7 @@
     "husky": "9.1.7",
     "scratch-semantic-release-config": "4.0.1",
     "semantic-release": "25.0.9",
-    "vitest": "4.1.11"
+    "vitest": "5.0.0"
   },
   "config": {
     "commitizen": {
