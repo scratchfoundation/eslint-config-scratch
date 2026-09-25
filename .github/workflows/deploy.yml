@@ -2,13 +2,14 @@ name: Build eslint-config-scratch
 
 on:
   push:
+  pull_request: # for PRs from forks; branches in this repo are already built on push
 permissions:
   contents: read # checkout
 jobs:
   build-eslint:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     permissions:
       contents: write # publish a GitHub release
-      pages: write # deploy to GitHub Pages
       issues: write # comment on released issues
       pull-requests: write # comment on released pull requests
     runs-on: ubuntu-latest
@@ -20,18 +21,26 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
       - name: Info
+        env:
+          PR_HEAD_LABEL: ${{ github.event.pull_request.head.label }}
+          HEAD_REF: ${{ github.head_ref }}
+          REF: ${{ github.ref }}
+          WORKFLOW: ${{ github.workflow }}
         run: |
           cat <<EOF
           Node version: $(node --version)
           NPM version: $(npm --version)
-          github.event.pull_request.head.label: ${{ github.event.pull_request.head.label }}
-          github.head_ref: ${{ github.head_ref }}
-          github.ref: ${{ github.ref }}
-          github.workflow: ${{ github.workflow }}
+          github.event.pull_request.head.label: ${PR_HEAD_LABEL}
+          github.head_ref: ${HEAD_REF}
+          github.ref: ${REF}
+          github.workflow: ${WORKFLOW}
           EOF
       - run: npm ci
       - run: npm test
+      - name: Check a fresh install of the package
+        run: scripts/check-fresh-install.sh
       - name: Semantic Release
+        if: github.event_name == 'push'
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

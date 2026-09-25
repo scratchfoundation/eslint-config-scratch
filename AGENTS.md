@@ -44,6 +44,7 @@ npm test            # Lint + Vitest tests
 npm run test:lint   # ESLint + Prettier check only
 npm run test:vitest # Vitest tests only
 npm run format      # Auto-fix formatting and lint issues
+scripts/check-fresh-install.sh  # Install the packed package into an empty project and lint with it (CI runs this)
 ```
 
 ## Repository layout
@@ -61,8 +62,14 @@ lib/
     └── typescript.mjs
 test/
 ├── eslint.test.mjs    Vitest test suite — lints fixture files and asserts error counts
-└── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
+├── __snapshots__/     Snapshots of the lint messages each fixture produces
+├── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
+└── legacy/            The same fixtures, linted with the legacy configs
+scripts/
+└── check-fresh-install.sh   Lints fixtures with the packed package installed fresh, without package-lock.json
 ```
+
+Only `lib/` (plus the README and license files) is published; see `files` in `package.json`.
 
 ## Exported API
 
@@ -72,7 +79,9 @@ The main export (`lib/index.mjs`) provides:
 - `eslintConfigScratch.recommendedTypeFree` — for JavaScript without type information
 - `eslintConfigScratch.recommendedTypeChecked` — for TypeScript with full type checking
 - `eslintConfigScratch.defineConfig` — re-export of ESLint's `defineConfig` helper
-- `eslintConfigScratch.legacy.*` — named legacy configs (`base`, `es6`, `node`, `react`) for older consumers
+- `eslintConfigScratch.miscFileRules` — rules for HTML, XML, and Markdown files (included in `recommended`)
+- `eslintConfigScratch.legacy.*` — named legacy configs (`base`, `es6`, `node`, `react`, `typescript`) for older
+  consumers
 - `prettierConfigScratch.recommended` — Prettier configuration
 
 All of the above are part of the public API. A rule change that causes previously-passing code to fail lint is
@@ -81,8 +90,9 @@ non-breaking (`feat` or `fix`).
 
 ## Testing approach
 
-Tests in `test/eslint.test.mjs` use the ESLint Node API to lint fixture files in `test/recommended/` and assert
-exact error and warning counts. When adding or changing a rule:
+Tests in `test/eslint.test.mjs` use the ESLint Node API to lint fixture files in `test/recommended/` and
+`test/legacy/`, assert exact error and warning counts, and snapshot the resulting lint messages. When adding or
+changing a rule:
 
 1. Add or update a fixture file (`*.good.*` should produce zero errors; `*.bad.*` should produce the expected
    count).
