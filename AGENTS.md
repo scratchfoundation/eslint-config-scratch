@@ -44,6 +44,7 @@ npm test            # Lint + Vitest tests
 npm run test:lint   # ESLint + Prettier check only
 npm run test:vitest # Vitest tests only
 npm run format      # Auto-fix formatting and lint issues
+scripts/check-fresh-install.sh  # Install the packed package into an empty project and lint with it (CI runs this)
 ```
 
 ## Repository layout
@@ -64,7 +65,11 @@ test/
 ├── __snapshots__/     Snapshots of the lint messages each fixture produces
 ├── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
 └── legacy/            The same fixtures, linted with the legacy configs
+scripts/
+└── check-fresh-install.sh   Lints fixtures with the packed package installed fresh, without package-lock.json
 ```
+
+Only `lib/` (plus the README and license files) is published; see `files` in `package.json`.
 
 ## Exported API
 
