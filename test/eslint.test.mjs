@@ -142,7 +142,8 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
   })
 
   testList.forEach(({ name, filePath, warningCount, errorCount }, i) => {
-    test(name, () => {
+    // Concurrent tests must use the context's `expect` so each snapshot is recorded against its own test.
+    test(name, ({ expect }) => {
       expect(path.resolve(results[i].filePath)).toBe(path.resolve(import.meta.dirname, subdir, filePath))
       expect(results[i].warningCount, util.inspect(results[i])).toBe(warningCount)
       expect(results[i].errorCount, util.inspect(results[i])).toBe(errorCount)
