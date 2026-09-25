@@ -6,11 +6,14 @@ mistakes and encourage code that's easier to read and understand.
 
 ## Quick Start
 
-Install the config along with its peer dependencies, `eslint` and `prettier`:
+Install the config along with its peer dependency, `eslint`. The config brings its own `prettier`; install `prettier`
+directly as well if you want to run the `prettier` CLI from your project's scripts:
 
 ```bash
 npm install -D eslint-config-scratch eslint@^9 prettier@^3
 ```
+
+This package requires Node.js `^22.22.2 || >=24.15.0`.
 
 Add `eslint.config.mjs` to your project root.
 
@@ -46,7 +49,7 @@ import { eslintConfigScratch } from 'eslint-config-scratch'
 export default eslintConfigScratch.recommended
 ```
 
-The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `@eslint/config`,
+The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `eslint/config`,
 and helps with merging and extending configurations.
 
 Add `prettier.config.mjs` to your project root as well:
@@ -69,11 +72,11 @@ Finally, add scripts like these to your `package.json`:
 
 ## Basic Configuration
 
-The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `@eslint/config`,
+The function `eslintConfigScratch.defineConfig` is a re-export of the `defineConfig` function from `eslint/config`,
 and helps with merging and extending configurations. Full documentation is available here:
 <https://eslint.org/blog/2025/03/flat-config-extends-define-config-global-ignores/#introducing-defineconfig()-for-eslint>.
 
-The `config` function can be used to add or override rules, plugins, and other configuration options. For example:
+Use `defineConfig` to add or override rules, plugins, and other configuration options. For example:
 
 ```js
 // myProjectRoot/eslint.config.mjs
@@ -123,6 +126,8 @@ can use these legacy configurations:
 - `eslintConfigScratch.legacy.es6`: Legacy rules for targeting Scratch's supported web browsers
 - `eslintConfigScratch.legacy.node`: Legacy rules for targeting Node.js
 - `eslintConfigScratch.legacy.react`: Legacy rules for targeting Scratch's supported web browsers with React
+- `eslintConfigScratch.legacy.typescript`: Legacy rules for TypeScript, swapping core rules for their type-aware
+  `typescript-eslint` equivalents (requires type information)
 
 New projects should not use these rule sets. They may disappear in the future. Scratch did not use Prettier at this
 time, so there is no legacy Prettier configuration.
@@ -190,15 +195,8 @@ applicable.
 - `chore`: Other changes that don't modify src or test files
 - `revert`: Reverts a previous commit
 
-Use the [commitizen CLI](https://github.com/commitizen/cz-cli) to make commits
-formatted in this way:
-
-```bash
-npm install -g commitizen
-npm install
-```
-
-Now you're ready to make commits using `git cz`.
+After `npm install`, a Husky `commit-msg` hook runs [commitlint](https://commitlint.js.org/) to check each commit
+message against this format. CI runs the same check.
 
 ## Breaking changes
 
