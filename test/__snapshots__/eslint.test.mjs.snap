@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`'legacy' > Plain JS (bad) 1`] = `
+exports[`legacy > Plain JS (bad) 1`] = `
 [
   {
     "column": 7,
@@ -32,9 +32,9 @@ exports[`'legacy' > Plain JS (bad) 1`] = `
 ]
 `;
 
-exports[`'legacy' > Plain JS (good) 1`] = `[]`;
+exports[`legacy > Plain JS (good) 1`] = `[]`;
 
-exports[`'legacy' > Plain TS (bad) 1`] = `
+exports[`legacy > Plain TS (bad) 1`] = `
 [
   {
     "column": 7,
@@ -75,9 +75,9 @@ exports[`'legacy' > Plain TS (bad) 1`] = `
 ]
 `;
 
-exports[`'legacy' > Plain TS (good) 1`] = `[]`;
+exports[`legacy > Plain TS (good) 1`] = `[]`;
 
-exports[`'legacy' > React JSX (bad) 1`] = `
+exports[`legacy > React JSX (bad) 1`] = `
 [
   {
     "column": 7,
@@ -100,9 +100,9 @@ exports[`'legacy' > React JSX (bad) 1`] = `
 ]
 `;
 
-exports[`'legacy' > React JSX (good) 1`] = `[]`;
+exports[`legacy > React JSX (good) 1`] = `[]`;
 
-exports[`'recommended' > Plain JS (bad) 1`] = `
+exports[`recommended > Plain JS (bad) 1`] = `
 [
   {
     "column": 10,
@@ -152,9 +152,9 @@ exports[`'recommended' > Plain JS (bad) 1`] = `
 ]
 `;
 
-exports[`'recommended' > Plain JS (good) 1`] = `[]`;
+exports[`recommended > Plain JS (good) 1`] = `[]`;
 
-exports[`'recommended' > Plain TS (bad) 1`] = `
+exports[`recommended > Plain TS (bad) 1`] = `
 [
   {
     "column": 7,
@@ -222,9 +222,9 @@ exports[`'recommended' > Plain TS (bad) 1`] = `
 ]
 `;
 
-exports[`'recommended' > Plain TS (good) 1`] = `[]`;
+exports[`recommended > Plain TS (good) 1`] = `[]`;
 
-exports[`'recommended' > React JSX (bad) 1`] = `
+exports[`recommended > React JSX (bad) 1`] = `
 [
   {
     "column": 10,
@@ -247,4 +247,4 @@ exports[`'recommended' > React JSX (bad) 1`] = `
 ]
 `;
 
-exports[`'recommended' > React JSX (good) 1`] = `[]`;
+exports[`recommended > React JSX (good) 1`] = `[]`;
