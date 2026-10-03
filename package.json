@@ -57,7 +57,7 @@
     "husky": "9.1.7",
     "scratch-semantic-release-config": "4.0.1",
     "semantic-release": "25.0.9",
-    "vitest": "5.0.2"
+    "vitest": "5.0.3"
   },
   "engines": {
     "node": "^22.22.2 || >=24.15.0"
