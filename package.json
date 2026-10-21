@@ -50,8 +50,8 @@
     "typescript-eslint": "8.71.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.3",
-    "@commitlint/config-conventional": "21.2.3",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
     "eslint": "9.39.5",
     "husky": "9.1.7",
