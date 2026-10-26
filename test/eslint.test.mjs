@@ -27,6 +27,12 @@ const testInfo = {
       errorCount: 0,
     },
     {
+      name: 'CommonJS (good)',
+      filePath: 'plain.good.cjs',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
       name: 'React JSX (good)',
       filePath: 'react.good.jsx',
       warningCount: 0,
