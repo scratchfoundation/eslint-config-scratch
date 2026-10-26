@@ -178,7 +178,8 @@ Upgrade `eslint` and `eslint-config-scratch` together. Then:
 - Remove `/* eslint-env */` comments. ESLint 10 reports them as errors; declare globals with `languageOptions.globals`
   instead.
 - Fix reports from the rules ESLint 10 added to `eslint:recommended`: `no-unassigned-vars`, `no-useless-assignment`,
-  and `preserve-caught-error`. They apply to both the `recommended` and `legacy` configurations.
+  and `preserve-caught-error`. They apply to both the `recommended` and `legacy` configurations. Also,
+  `no-shadow-restricted-names` now reports variables named `globalThis`.
 - Check any `eslint.config.*` files below your project root. ESLint 10 uses the config file nearest to each linted
   file, so a nested config now replaces the root config for files under it.
 
