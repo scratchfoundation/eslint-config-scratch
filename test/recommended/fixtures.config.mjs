@@ -4,7 +4,6 @@ const config = eslintConfigScratch.defineConfig(eslintConfigScratch.recommended,
   files: ['**/*.ts', '**/*.tsx'],
   languageOptions: {
     parserOptions: {
-      projectService: true,
       tsconfigRootDir: import.meta.dirname,
     },
   },

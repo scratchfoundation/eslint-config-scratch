@@ -1,11 +1,11 @@
 {
   "name": "eslint-config-scratch",
-  "version": "14.1.94",
+  "version": "14.1.97",
   "description": "Shareable ESLint config for Scratch",
   "main": "./lib/index.mjs",
   "scripts": {
     "prepare": "husky",
-    "format": "prettier --write . && eslint --fix",
+    "format": "eslint --fix && prettier --write .",
     "test:lint": "eslint && prettier --check .",
     "test:vitest": "vitest run",
     "test": "npm run test:lint && npm run test:vitest"
@@ -32,7 +32,6 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@eslint/compat": "2.1.1",
-    "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "10.0.1",
     "@eslint/markdown": "8.0.3",
     "@stylistic/eslint-plugin": "5.10.0",
@@ -60,6 +59,13 @@
     "semantic-release": "25.0.9",
     "vitest": "5.0.5"
   },
+  "engines": {
+    "node": "^22.22.2 || >=24.15.0"
+  },
+  "files": [
+    "lib/",
+    "TRADEMARK"
+  ],
   "overrides": {
     "eslint-plugin-jsx-a11y": {
       "eslint": "$eslint"
@@ -67,12 +73,5 @@
     "eslint-plugin-react": {
       "eslint": "$eslint"
     }
-  },
-  "engines": {
-    "node": "^22.22.2 || >=24.15.0"
-  },
-  "files": [
-    "lib/",
-    "TRADEMARK"
-  ]
+  }
 }

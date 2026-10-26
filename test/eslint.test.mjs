@@ -27,6 +27,12 @@ const testInfo = {
       errorCount: 0,
     },
     {
+      name: 'CommonJS (good)',
+      filePath: 'plain.good.cjs',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
       name: 'React JSX (good)',
       filePath: 'react.good.jsx',
       warningCount: 0,
@@ -55,6 +61,12 @@ const testInfo = {
       filePath: 'plain.bad.ts',
       warningCount: 0,
       errorCount: 7,
+    },
+    {
+      name: 'Markdown code blocks (good)',
+      filePath: 'markdown.good.md',
+      warningCount: 0,
+      errorCount: 0,
     },
   ],
   legacy: [

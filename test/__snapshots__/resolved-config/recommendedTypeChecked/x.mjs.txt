@@ -1,0 +1,186 @@
+processor: -
+parser: typescript-eslint/parser
+sourceType: module
+projectService: -
+@eslint-community/eslint-comments/disable-enable-pair: error
+@eslint-community/eslint-comments/no-aggregating-enable: error
+@eslint-community/eslint-comments/no-duplicate-disable: error
+@eslint-community/eslint-comments/no-unlimited-disable: error
+@eslint-community/eslint-comments/no-unused-enable: error
+@eslint-community/eslint-comments/require-description: error [{"ignore":["eslint-enable"]}]
+@typescript-eslint/adjacent-overload-signatures: error
+@typescript-eslint/array-type: error
+@typescript-eslint/await-thenable: error
+@typescript-eslint/ban-ts-comment: error
+@typescript-eslint/ban-tslint-comment: error
+@typescript-eslint/class-literal-property-style: error
+@typescript-eslint/consistent-generic-constructors: error
+@typescript-eslint/consistent-indexed-object-style: error
+@typescript-eslint/consistent-type-assertions: error
+@typescript-eslint/consistent-type-definitions: error
+@typescript-eslint/dot-notation: error [{"allowIndexSignaturePropertyAccess":false,"allowKeywords":true,"allowPattern":"","allowPrivateClassPropertyAccess":false,"allowProtectedClassPropertyAccess":false}]
+@typescript-eslint/no-array-constructor: error
+@typescript-eslint/no-array-delete: error
+@typescript-eslint/no-base-to-string: error
+@typescript-eslint/no-confusing-non-null-assertion: error
+@typescript-eslint/no-duplicate-enum-values: error
+@typescript-eslint/no-duplicate-type-constituents: error
+@typescript-eslint/no-empty-object-type: error
+@typescript-eslint/no-explicit-any: error
+@typescript-eslint/no-extra-non-null-assertion: error
+@typescript-eslint/no-floating-promises: error
+@typescript-eslint/no-for-in-array: error
+@typescript-eslint/no-implied-eval: error
+@typescript-eslint/no-inferrable-types: error
+@typescript-eslint/no-misused-new: error
+@typescript-eslint/no-misused-promises: error
+@typescript-eslint/no-namespace: error
+@typescript-eslint/no-non-null-asserted-nullish-coalescing: error
+@typescript-eslint/no-non-null-asserted-optional-chain: error
+@typescript-eslint/no-non-null-assertion: error
+@typescript-eslint/no-redundant-type-constituents: error
+@typescript-eslint/no-require-imports: error
+@typescript-eslint/no-this-alias: error
+@typescript-eslint/no-unnecessary-condition: error
+@typescript-eslint/no-unnecessary-type-assertion: error
+@typescript-eslint/no-unnecessary-type-constraint: error
+@typescript-eslint/no-unsafe-argument: error
+@typescript-eslint/no-unsafe-assignment: error
+@typescript-eslint/no-unsafe-call: error
+@typescript-eslint/no-unsafe-declaration-merging: error
+@typescript-eslint/no-unsafe-enum-comparison: error
+@typescript-eslint/no-unsafe-function-type: error
+@typescript-eslint/no-unsafe-member-access: error
+@typescript-eslint/no-unsafe-return: error
+@typescript-eslint/no-unsafe-unary-minus: error
+@typescript-eslint/no-unused-expressions: error [{"allowShortCircuit":false,"allowTaggedTemplates":false,"allowTernary":false}]
+@typescript-eslint/no-unused-vars: error [{"argsIgnorePattern":"^_","caughtErrorsIgnorePattern":"^_","destructuredArrayIgnorePattern":"^_","varsIgnorePattern":"^_"}]
+@typescript-eslint/no-useless-constructor: error
+@typescript-eslint/no-wrapper-object-types: error
+@typescript-eslint/non-nullable-type-assertion-style: error
+@typescript-eslint/only-throw-error: error
+@typescript-eslint/prefer-as-const: error
+@typescript-eslint/prefer-find: error
+@typescript-eslint/prefer-for-of: error
+@typescript-eslint/prefer-function-type: error
+@typescript-eslint/prefer-includes: error
+@typescript-eslint/prefer-namespace-keyword: error
+@typescript-eslint/prefer-nullish-coalescing: error
+@typescript-eslint/prefer-optional-chain: error
+@typescript-eslint/prefer-promise-reject-errors: error
+@typescript-eslint/prefer-regexp-exec: error
+@typescript-eslint/prefer-string-starts-ends-with: error
+@typescript-eslint/require-await: error
+@typescript-eslint/restrict-plus-operands: error
+@typescript-eslint/restrict-template-expressions: error
+@typescript-eslint/triple-slash-reference: error
+@typescript-eslint/unbound-method: error
+arrow-body-style: error ["as-needed"]
+constructor-super: error
+for-direction: error
+formatjs/no-offset: error
+getter-return: error [{"allowImplicit":false}]
+import-x/no-duplicates: error
+jsdoc/check-access: error
+jsdoc/check-alignment: error
+jsdoc/check-param-names: error
+jsdoc/check-property-names: error
+jsdoc/check-tag-names: error [{"typed":true}]
+jsdoc/check-types: error
+jsdoc/check-values: error
+jsdoc/empty-tags: error
+jsdoc/escape-inline-tags: error
+jsdoc/implements-on-classes: error
+jsdoc/informative-docs: error
+jsdoc/multiline-blocks: error
+jsdoc/no-defaults: error
+jsdoc/no-multi-asterisks: error
+jsdoc/no-types: error
+jsdoc/reject-any-type: error
+jsdoc/reject-function-type: error
+jsdoc/require-next-type: error
+jsdoc/require-param: error
+jsdoc/require-param-description: error
+jsdoc/require-param-name: error
+jsdoc/require-property: error
+jsdoc/require-property-description: error
+jsdoc/require-property-name: error
+jsdoc/require-returns: error
+jsdoc/require-returns-check: error
+jsdoc/require-returns-description: error
+jsdoc/require-throws-type: error
+jsdoc/require-yields: error
+jsdoc/require-yields-check: error
+jsdoc/require-yields-type: error
+jsdoc/tag-lines: error
+jsdoc/ts-no-empty-object-type: error
+jsdoc/valid-types: error
+n/prefer-node-protocol: error
+no-async-promise-executor: error
+no-case-declarations: error
+no-class-assign: error
+no-compare-neg-zero: error
+no-cond-assign: error ["except-parens"]
+no-const-assign: error
+no-constant-binary-expression: error [{"checkRelationalComparisons":false}]
+no-constant-condition: error [{"checkLoops":"allExceptWhileTrue"}]
+no-control-regex: error
+no-debugger: error
+no-delete-var: error
+no-dupe-args: error
+no-dupe-class-members: error
+no-dupe-else-if: error
+no-dupe-keys: error
+no-duplicate-case: error
+no-empty: error [{"allowEmptyCatch":false}]
+no-empty-character-class: error
+no-empty-pattern: error [{"allowObjectPatternsAsParameters":false}]
+no-empty-static-block: error
+no-ex-assign: error
+no-extra-boolean-cast: error [{}]
+no-fallthrough: error [{"allowEmptyCase":false,"reportUnusedFallthroughComment":false}]
+no-func-assign: error
+no-global-assign: error [{"exceptions":[]}]
+no-import-assign: error
+no-invalid-regexp: error [{}]
+no-irregular-whitespace: error [{"skipComments":false,"skipJSXText":false,"skipRegExps":false,"skipStrings":true,"skipTemplates":false}]
+no-loss-of-precision: error
+no-misleading-character-class: error [{"allowEscape":false}]
+no-new-native-nonconstructor: error
+no-nonoctal-decimal-escape: error
+no-obj-calls: error
+no-octal: error
+no-prototype-builtins: error
+no-redeclare: error [{"builtinGlobals":true}]
+no-regex-spaces: error
+no-self-assign: error [{"props":true}]
+no-setter-return: error
+no-shadow-restricted-names: error [{"reportGlobalThis":true}]
+no-sparse-arrays: error
+no-template-curly-in-string: error
+no-this-before-super: error
+no-unassigned-vars: error
+no-undef: error [{"typeof":false}]
+no-unreachable: error
+no-unsafe-finally: error
+no-unsafe-negation: error [{"enforceForOrderingRelations":false}]
+no-unsafe-optional-chaining: error [{"disallowArithmeticOperators":false}]
+no-unused-labels: error
+no-unused-private-class-members: error
+no-useless-assignment: error
+no-useless-backreference: error
+no-useless-catch: error
+no-useless-computed-key: error [{"enforceForClassMembers":true}]
+no-useless-escape: error [{"allowRegexCharacters":[]}]
+no-useless-rename: error [{"ignoreDestructuring":false,"ignoreImport":false,"ignoreExport":false}]
+no-with: error
+prefer-arrow-callback: error [{"allowNamedFunctions":false,"allowUnboundThis":true}]
+prefer-const: error [{"destructuring":"any","ignoreReadBeforeAssign":false}]
+prefer-spread: error
+preserve-caught-error: error [{"requireCatchParameter":false,"errorClassNames":[]}]
+react/jsx-filename-extension: error [{"allow":"as-needed","extensions":[".jsx",".tsx"]}]
+require-atomic-updates: error [{"allowProperties":false}]
+require-yield: error
+symbol-description: error
+use-isnan: error [{"enforceForIndexOf":false,"enforceForSwitchCase":true}]
+valid-typeof: error [{"requireStringLiterals":false}]
