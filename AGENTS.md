@@ -63,6 +63,7 @@ lib/
 test/
 ├── eslint.test.mjs    Vitest test suite — lints fixture files and asserts error counts
 ├── resolved-config.test.mjs  Snapshots the resolved config per exported config and file type
+├── prettier.test.mjs  Formats sample code with the Prettier config and checks the output
 ├── __snapshots__/     Snapshots of the lint messages each fixture produces, and of the resolved configs
 ├── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
 └── legacy/            The same fixtures, linted with the legacy configs
