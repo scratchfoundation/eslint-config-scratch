@@ -5,10 +5,5 @@ module.exports = {
       name: 'master',
       // default channel
     },
-    {
-      name: 'v15',
-      prerelease: 'next',
-      channel: 'next',
-    },
   ],
 }
