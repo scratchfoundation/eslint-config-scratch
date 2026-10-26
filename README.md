@@ -199,6 +199,9 @@ Upgrade `eslint` and `eslint-config-scratch` together. Then:
   `no-shadow-restricted-names` now reports variables named `globalThis`.
 - Check any `eslint.config.*` files below your project root. ESLint 10 uses the config file nearest to each linted
   file, so a nested config now replaces the root config for files under it.
+- Import only from `eslint-config-scratch` itself. The package now has an `exports` map, so paths inside it, such as
+  `eslint-config-scratch/lib/eslint.mjs`, can't be imported. The package also ships TypeScript types, so editors and
+  `eslint.config.ts` files can type-check your configuration.
 
 See the [ESLint v10 migration guide](https://eslint.org/docs/latest/use/migrate-to-10.0.0) for the full list.
 
