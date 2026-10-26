@@ -10,7 +10,7 @@ export declare const eslintConfigScratch: {
   readonly recommended: Linter.Config[]
   /** Scratch's recommended configuration when type information is not available. */
   readonly recommendedTypeFree: Linter.Config[]
-  /** Scratch's recommended configuration when type information is available. Doesn't set `files`. */
+  /** Scratch's recommended configuration for TypeScript files when type information is available. */
   readonly recommendedTypeChecked: Linter.Config[]
   /** Support for HTML and XML files, and for code blocks in Markdown files. Included in `recommended`. */
   readonly miscFileRules: Linter.Config[]
