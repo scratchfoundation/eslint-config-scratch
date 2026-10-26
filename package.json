@@ -5,7 +5,7 @@
   "main": "./lib/index.mjs",
   "scripts": {
     "prepare": "husky",
-    "format": "prettier --write . && eslint --fix",
+    "format": "eslint --fix && prettier --write .",
     "test:lint": "eslint && prettier --check .",
     "test:vitest": "vitest run",
     "test": "npm run test:lint && npm run test:vitest"
