@@ -51,6 +51,12 @@ const testInfo = {
       errorCount: 2,
     },
     {
+      name: 'TypeScript syntax in JS (bad)',
+      filePath: 'typescript-syntax.bad.mjs',
+      warningCount: 0,
+      errorCount: 1,
+    },
+    {
       name: 'Plain TS (good)',
       filePath: 'plain.good.ts',
       warningCount: 0,

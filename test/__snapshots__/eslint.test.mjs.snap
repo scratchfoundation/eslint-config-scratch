@@ -245,3 +245,13 @@ exports[`recommended > React JSX (bad) 1`] = `
 `;
 
 exports[`recommended > React JSX (good) 1`] = `[]`;
+
+exports[`recommended > TypeScript syntax in JS (bad) 1`] = `
+[
+  {
+    "column": 20,
+    "line": 2,
+    "ruleId": null,
+  },
+]
+`;
