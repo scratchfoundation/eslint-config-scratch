@@ -42,13 +42,19 @@ const testInfo = {
       name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
-      errorCount: 5,
+      errorCount: 7,
     },
     {
       name: 'React JSX (bad)',
       filePath: 'react.bad.jsx',
       warningCount: 0,
       errorCount: 2,
+    },
+    {
+      name: 'TypeScript syntax in JS (bad)',
+      filePath: 'typescript-syntax.bad.mjs',
+      warningCount: 0,
+      errorCount: 1,
     },
     {
       name: 'Plain TS (good)',
@@ -61,6 +67,18 @@ const testInfo = {
       filePath: 'plain.bad.ts',
       warningCount: 0,
       errorCount: 7,
+    },
+    {
+      name: 'HTML inline script (good)',
+      filePath: 'inline-script.good.html',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'HTML inline script (bad)',
+      filePath: 'inline-script.bad.html',
+      warningCount: 0,
+      errorCount: 1,
     },
     {
       name: 'Markdown code blocks (good)',
@@ -118,7 +136,7 @@ const testInfo = {
 const messageSnapshot = (result) =>
   Object.fromEntries(
     Object.entries(result).filter(([k]) =>
-      ['line', 'column', 'endLine', 'endColumn', 'messageId', 'nodeType', 'ruleId'].includes(k),
+      ['line', 'column', 'endLine', 'endColumn', 'messageId', 'ruleId'].includes(k),
     ),
   )
 
@@ -143,7 +161,7 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
   // Linting one file at a time takes much longer
   beforeAll(async () => {
     const eslint = new ESLint({
-      overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'eslint.config.mjs'),
+      overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'fixtures.config.mjs'),
     })
     results = await eslint.lintFiles(testList.map((info) => path.resolve(import.meta.dirname, subdir, info.filePath)))
   })

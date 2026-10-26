@@ -10,10 +10,14 @@ Install the config along with its peer dependency, `eslint`. The config brings i
 directly as well if you want to run the `prettier` CLI from your project's scripts:
 
 ```bash
-npm install -D eslint-config-scratch eslint@^9 prettier@^3
+npm install -D eslint-config-scratch eslint@^10 prettier@^3
 ```
 
 This package requires Node.js `^22.22.2 || >=24.15.0`.
+
+npm prints `ERESOLVE overriding peer dependency` warnings for `eslint-plugin-react` and `eslint-plugin-jsx-a11y`,
+whose published peer ranges stop at ESLint 9. This config wraps both with `@eslint/compat`, so they work with ESLint 10
+despite the warning.
 
 Add `eslint.config.mjs` to your project root.
 
@@ -122,13 +126,17 @@ package.
 The `eslintConfigScratch` object contains granular configurations as well:
 
 - `recommendedTypeFree`: A configuration suitable for contexts without type information, such as a JavaScript project.
-- `recommendedTypeChecked`: A configuration suitable for contexts with type information, such as a TypeScript project.
-  You must provide extra configuration to `parserOptions` to enable type checking. See here:
+- `recommendedTypeChecked`: A configuration for TypeScript files with type information. It applies only to TypeScript
+  files. You must provide extra configuration to `parserOptions` to enable type checking. See here:
   <https://typescript-eslint.io/getting-started/typed-linting/>
 
 The `recommended` configuration is a combination of the two, and should be suitable for most projects. Features
 requiring type information are enabled for TypeScript files, and features that don't require type information are
 enabled for all files.
+
+Type-aware rules apply only to TypeScript files. JavaScript files are parsed as JavaScript, so TypeScript syntax such
+as `const x: number = 1` in a `.js` file is an error. To type-check JSDoc types in JavaScript, use TypeScript itself:
+enable `allowJs` and `checkJs` in a `jsconfig.json` or `tsconfig.json` and run `tsc --noEmit`.
 
 ## Legacy Styles
 
@@ -172,6 +180,32 @@ export default eslintConfigScratch.defineConfig(
   globalIgnores(['dist/**', 'node_modules/**']),
 )
 ```
+
+## Upgrading to v15 (ESLint 10)
+
+Upgrade `eslint` and `eslint-config-scratch` together. Then:
+
+- Make sure only one ESLint is installed: `npm ls eslint` should show a single 10.x version. In an npm workspaces
+  monorepo, also install `eslint` at the root. Otherwise npm can leave ESLint 9 at the root next to ESLint 10 in each
+  workspace, and linting crashes with errors such as `sourceCode.getJSDocComment is not a function`. If npm refuses
+  to install ESLint 10 because of a direct dependency on `eslint-plugin-react` or `eslint-plugin-jsx-a11y`, remove
+  that dependency unless your own config imports the plugin. This package already provides both.
+- Expect npm to warn that `eslint-plugin-react` and `eslint-plugin-jsx-a11y` don't support ESLint 10, and `npm ls` to
+  mark `eslint` as invalid. Those plugins don't list ESLint 10 as a peer yet; this package adapts them to it.
+- Remove `/* eslint-env */` comments. ESLint 10 reports them as errors; declare globals with `languageOptions.globals`
+  instead.
+- If your config imports `globals`, make sure it's in your own `devDependencies` (see
+  [Basic Configuration](#basic-configuration)).
+- Fix reports from the rules ESLint 10 added to `eslint:recommended`: `no-unassigned-vars`, `no-useless-assignment`,
+  and `preserve-caught-error`. They apply to both the `recommended` and `legacy` configurations. Also,
+  `no-shadow-restricted-names` now reports variables named `globalThis`.
+- Check any `eslint.config.*` files below your project root. ESLint 10 uses the config file nearest to each linted
+  file, so a nested config now replaces the root config for files under it.
+- Import only from `eslint-config-scratch` itself. The package now has an `exports` map, so paths inside it, such as
+  `eslint-config-scratch/lib/eslint.mjs`, can't be imported. The package also ships TypeScript types, so editors and
+  `eslint.config.ts` files can type-check your configuration.
+
+See the [ESLint v10 migration guide](https://eslint.org/docs/latest/use/migrate-to-10.0.0) for the full list.
 
 ## Committing
 

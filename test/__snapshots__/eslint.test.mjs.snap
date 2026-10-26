@@ -8,7 +8,6 @@ exports[`legacy > Plain JS (bad) 1`] = `
     "endLine": 4,
     "line": 4,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
   },
   {
@@ -17,7 +16,6 @@ exports[`legacy > Plain JS (bad) 1`] = `
     "endLine": 12,
     "line": 12,
     "messageId": "noJSXWithExtension",
-    "nodeType": "JSXElement",
     "ruleId": "react/jsx-filename-extension",
   },
   {
@@ -26,7 +24,6 @@ exports[`legacy > Plain JS (bad) 1`] = `
     "endLine": 15,
     "line": 15,
     "messageId": "undef",
-    "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
 ]
@@ -42,7 +39,6 @@ exports[`legacy > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "noInferrableType",
-    "nodeType": "VariableDeclarator",
     "ruleId": "@typescript-eslint/no-inferrable-types",
   },
   {
@@ -51,7 +47,6 @@ exports[`legacy > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -60,7 +55,6 @@ exports[`legacy > Plain TS (bad) 1`] = `
     "endLine": 8,
     "line": 8,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -69,7 +63,6 @@ exports[`legacy > Plain TS (bad) 1`] = `
     "endLine": 16,
     "line": 16,
     "messageId": "undef",
-    "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
 ]
@@ -85,7 +78,6 @@ exports[`legacy > React JSX (bad) 1`] = `
     "endLine": 4,
     "line": 4,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
   },
   {
@@ -94,7 +86,6 @@ exports[`legacy > React JSX (bad) 1`] = `
     "endLine": 14,
     "line": 14,
     "messageId": "undef",
-    "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
 ]
@@ -103,6 +94,21 @@ exports[`legacy > React JSX (bad) 1`] = `
 exports[`legacy > React JSX (good) 1`] = `[]`;
 
 exports[`recommended > CommonJS (good) 1`] = `[]`;
+
+exports[`recommended > HTML inline script (bad) 1`] = `
+[
+  {
+    "column": 13,
+    "endColumn": 19,
+    "endLine": 10,
+    "line": 10,
+    "messageId": "unusedVar",
+    "ruleId": "no-unused-vars",
+  },
+]
+`;
+
+exports[`recommended > HTML inline script (good) 1`] = `[]`;
 
 exports[`recommended > Markdown code blocks (good) 1`] = `[]`;
 
@@ -114,7 +120,6 @@ exports[`recommended > Plain JS (bad) 1`] = `
     "endLine": 4,
     "line": 4,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
   },
   {
@@ -123,7 +128,6 @@ exports[`recommended > Plain JS (bad) 1`] = `
     "endLine": 12,
     "line": 12,
     "messageId": "noJSXWithExtension",
-    "nodeType": "JSXElement",
     "ruleId": "react/jsx-filename-extension",
   },
   {
@@ -132,7 +136,6 @@ exports[`recommended > Plain JS (bad) 1`] = `
     "endLine": 15,
     "line": 15,
     "messageId": "undef",
-    "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
   {
@@ -141,7 +144,6 @@ exports[`recommended > Plain JS (bad) 1`] = `
     "endLine": 19,
     "line": 19,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
   },
   {
@@ -150,8 +152,23 @@ exports[`recommended > Plain JS (bad) 1`] = `
     "endLine": 25,
     "line": 25,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
+  },
+  {
+    "column": 5,
+    "endColumn": 40,
+    "endLine": 34,
+    "line": 34,
+    "messageId": "missingCause",
+    "ruleId": "preserve-caught-error",
+  },
+  {
+    "column": 7,
+    "endColumn": 13,
+    "endLine": 40,
+    "line": 40,
+    "messageId": "unassigned",
+    "ruleId": "no-unassigned-vars",
   },
 ]
 `;
@@ -166,7 +183,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "noInferrableType",
-    "nodeType": "VariableDeclarator",
     "ruleId": "@typescript-eslint/no-inferrable-types",
   },
   {
@@ -175,7 +191,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 5,
     "line": 5,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -184,7 +199,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 8,
     "line": 8,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -193,7 +207,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 17,
     "line": 17,
     "messageId": "anyAssignment",
-    "nodeType": "VariableDeclarator",
     "ruleId": "@typescript-eslint/no-unsafe-assignment",
   },
   {
@@ -202,7 +215,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 17,
     "line": 17,
     "messageId": "errorCall",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unsafe-call",
   },
   {
@@ -211,7 +223,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 21,
     "line": 21,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
   {
@@ -220,7 +231,6 @@ exports[`recommended > Plain TS (bad) 1`] = `
     "endLine": 27,
     "line": 27,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "@typescript-eslint/no-unused-vars",
   },
 ]
@@ -236,7 +246,6 @@ exports[`recommended > React JSX (bad) 1`] = `
     "endLine": 4,
     "line": 4,
     "messageId": "unusedVar",
-    "nodeType": "Identifier",
     "ruleId": "no-unused-vars",
   },
   {
@@ -245,10 +254,19 @@ exports[`recommended > React JSX (bad) 1`] = `
     "endLine": 14,
     "line": 14,
     "messageId": "undef",
-    "nodeType": "Identifier",
     "ruleId": "no-undef",
   },
 ]
 `;
 
 exports[`recommended > React JSX (good) 1`] = `[]`;
+
+exports[`recommended > TypeScript syntax in JS (bad) 1`] = `
+[
+  {
+    "column": 20,
+    "line": 2,
+    "ruleId": null,
+  },
+]
+`;

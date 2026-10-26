@@ -149,7 +149,7 @@ no-async-promise-executor: error
 no-case-declarations: error
 no-compare-neg-zero: error
 no-cond-assign: error ["except-parens"]
-no-constant-binary-expression: error
+no-constant-binary-expression: error [{"checkRelationalComparisons":false}]
 no-constant-condition: error [{"checkLoops":"allExceptWhileTrue"}]
 no-control-regex: error
 no-debugger: error
@@ -173,13 +173,15 @@ no-octal: error
 no-prototype-builtins: error
 no-regex-spaces: error
 no-self-assign: error [{"props":true}]
-no-shadow-restricted-names: error [{"reportGlobalThis":false}]
+no-shadow-restricted-names: error [{"reportGlobalThis":true}]
 no-sparse-arrays: error
 no-template-curly-in-string: error
+no-unassigned-vars: error
 no-unsafe-finally: error
 no-unsafe-optional-chaining: error [{"disallowArithmeticOperators":false}]
 no-unused-labels: error
 no-unused-private-class-members: error
+no-useless-assignment: error
 no-useless-backreference: error
 no-useless-catch: error
 no-useless-computed-key: error [{"enforceForClassMembers":true}]
@@ -190,6 +192,7 @@ prefer-arrow-callback: error [{"allowNamedFunctions":false,"allowUnboundThis":tr
 prefer-const: error [{"destructuring":"any","ignoreReadBeforeAssign":false}]
 prefer-rest-params: error
 prefer-spread: error
+preserve-caught-error: error [{"requireCatchParameter":false,"errorClassNames":[]}]
 react-hooks/config: error
 react-hooks/error-boundaries: error
 react-hooks/exhaustive-deps: error [{"additionalHooks":"^useAsync$"}]
