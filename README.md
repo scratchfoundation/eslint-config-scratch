@@ -10,10 +10,14 @@ Install the config along with its peer dependency, `eslint`. The config brings i
 directly as well if you want to run the `prettier` CLI from your project's scripts:
 
 ```bash
-npm install -D eslint-config-scratch eslint@^9 prettier@^3
+npm install -D eslint-config-scratch eslint@^10 prettier@^3
 ```
 
 This package requires Node.js `^22.22.2 || >=24.15.0`.
+
+npm prints `ERESOLVE overriding peer dependency` warnings for `eslint-plugin-react` and `eslint-plugin-jsx-a11y`,
+whose published peer ranges stop at ESLint 9. This config wraps both with `@eslint/compat`, so they work with ESLint 10
+despite the warning.
 
 Add `eslint.config.mjs` to your project root.
 
@@ -159,6 +163,25 @@ export default eslintConfigScratch.defineConfig(
   globalIgnores(['dist/**', 'node_modules/**']),
 )
 ```
+
+## Upgrading to v15 (ESLint 10)
+
+Upgrade `eslint` and `eslint-config-scratch` together. Then:
+
+- Make sure only one ESLint is installed: `npm ls eslint` should show a single 10.x version. In an npm workspaces
+  monorepo, install `eslint` at the root; an ESLint 9 left at the root next to ESLint 10 in a workspace can crash
+  linting. If npm refuses to install ESLint 10 because of a direct dependency on `eslint-plugin-react` or
+  `eslint-plugin-jsx-a11y`, remove that dependency unless your own config imports the plugin. This package already
+  provides both.
+
+- Remove `/* eslint-env */` comments. ESLint 10 reports them as errors; declare globals with `languageOptions.globals`
+  instead.
+- Fix reports from the rules ESLint 10 added to `eslint:recommended`: `no-unassigned-vars`, `no-useless-assignment`,
+  and `preserve-caught-error`. They apply to both the `recommended` and `legacy` configurations.
+- Check any `eslint.config.*` files below your project root. ESLint 10 uses the config file nearest to each linted
+  file, so a nested config now replaces the root config for files under it.
+
+See the [ESLint v10 migration guide](https://eslint.org/docs/latest/use/migrate-to-10.0.0) for the full list.
 
 ## Committing
 
