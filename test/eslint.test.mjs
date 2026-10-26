@@ -62,6 +62,12 @@ const testInfo = {
       warningCount: 0,
       errorCount: 7,
     },
+    {
+      name: 'Markdown code blocks (good)',
+      filePath: 'markdown.good.md',
+      warningCount: 0,
+      errorCount: 0,
+    },
   ],
   legacy: [
     {

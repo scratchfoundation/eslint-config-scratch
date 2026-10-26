@@ -17,8 +17,10 @@ This package requires Node.js `^22.22.2 || >=24.15.0`.
 
 Add `eslint.config.mjs` to your project root.
 
-For a TypeScript project, you can add `languageOptions` to enable type checking. For example, if your `tsconfig.json`
-covers files under `src/`, and you want to ignore `dist/` and `node_modules/`, your configuration might look like this:
+For a TypeScript project, `recommended` already enables type-aware rules for TypeScript files, using
+[typescript-eslint's project service](https://typescript-eslint.io/packages/parser/#projectservice). Tell it where to
+find your `tsconfig.json` with `tsconfigRootDir`. For example, if you also want to ignore `dist/` and `node_modules/`,
+your configuration might look like this:
 
 ```js
 // myProjectRoot/eslint.config.mjs
@@ -28,10 +30,9 @@ import { globalIgnores } from 'eslint/config'
 export default eslintConfigScratch.defineConfig(
   eslintConfigScratch.recommended,
   {
-    files: ['src/**'],
+    files: ['**/*.{ts,tsx,mts,cts}'],
     languageOptions: {
       parserOptions: {
-        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -39,6 +40,10 @@ export default eslintConfigScratch.defineConfig(
   globalIgnores(['dist/**', 'node_modules/**']),
 )
 ```
+
+Every TypeScript file you lint must be covered by your `tsconfig.json`. Setting `projectService` yourself isn't necessary,
+and setting it for non-TypeScript files (for example, with `files: ['src/**']`) makes ESLint type-check JavaScript files
+and Markdown code blocks that TypeScript can't find.
 
 For a JavaScript project, it might look like this:
 
@@ -92,10 +97,6 @@ export default eslintConfigScratch.defineConfig(
       globals: {
         ...globals.node,
         MY_CUSTOM_GLOBAL: 'readonly',
-      },
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
