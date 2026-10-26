@@ -70,8 +70,8 @@ Finally, add scripts like these to your `package.json`:
 
 ```json
 "scripts": {
-  "format": "prettier --write . && eslint --fix",
-  "lint": "eslint && prettier --check .",
+  "format": "eslint --fix && prettier --write .",
+  "lint": "eslint && prettier --check ."
 }
 ```
 
