@@ -186,10 +186,12 @@ export default eslintConfigScratch.defineConfig(
 Upgrade `eslint` and `eslint-config-scratch` together. Then:
 
 - Make sure only one ESLint is installed: `npm ls eslint` should show a single 10.x version. In an npm workspaces
-  monorepo, install `eslint` at the root; an ESLint 9 left at the root next to ESLint 10 in a workspace can crash
-  linting. If npm refuses to install ESLint 10 because of a direct dependency on `eslint-plugin-react` or
-  `eslint-plugin-jsx-a11y`, remove that dependency unless your own config imports the plugin. This package already
-  provides both.
+  monorepo, also install `eslint` at the root. Otherwise npm can leave ESLint 9 at the root next to ESLint 10 in each
+  workspace, and linting crashes with errors such as `sourceCode.getJSDocComment is not a function`. If npm refuses
+  to install ESLint 10 because of a direct dependency on `eslint-plugin-react` or `eslint-plugin-jsx-a11y`, remove
+  that dependency unless your own config imports the plugin. This package already provides both.
+- Expect npm to warn that `eslint-plugin-react` and `eslint-plugin-jsx-a11y` don't support ESLint 10, and `npm ls` to
+  mark `eslint` as invalid. Those plugins don't list ESLint 10 as a peer yet; this package adapts them to it.
 - Remove `/* eslint-env */` comments. ESLint 10 reports them as errors; declare globals with `languageOptions.globals`
   instead.
 - If your config imports `globals`, make sure it's in your own `devDependencies` (see
