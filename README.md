@@ -105,6 +105,18 @@ export default eslintConfigScratch.defineConfig(
 )
 ```
 
+This configuration doesn't declare environment globals, so code that uses `console`, `window`, or `process` needs
+`languageOptions.globals` like the example above. If you import the [`globals`](https://www.npmjs.com/package/globals)
+package for that, install it in your own project:
+
+```bash
+npm install -D globals
+```
+
+`eslint-config-scratch` depends on `globals` internally, so an import may resolve without installing it. Don't rely on
+that: it isn't part of this package's API, and it breaks with stricter package managers or a future release of this
+package.
+
 ## Granular Configuration
 
 The `eslintConfigScratch` object contains granular configurations as well:
