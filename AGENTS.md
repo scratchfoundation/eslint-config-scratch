@@ -35,13 +35,15 @@ Use these defaults unless the user asks otherwise:
 `eslint-config-scratch` is a shareable ESLint and Prettier configuration package for Scratch JavaScript and
 TypeScript projects. It is published to npm and consumed as a `devDependency` by other Scratch packages.
 
-There is no build step — `lib/` contains ES module source files (`.mjs`) that are published directly.
+There is no build step — `lib/` contains ES module source files (`.mjs`) that are published directly, plus a
+hand-written type declaration file, `lib/index.d.mts`.
 
 ## Build and lint
 
 ```sh
-npm test            # Lint + Vitest tests
+npm test            # Lint + type check + Vitest tests
 npm run test:lint   # ESLint + Prettier check only
+npm run test:types  # Type-check lib/index.d.mts and test/types/ with tsc
 npm run test:vitest # Vitest tests only
 npm run format      # Auto-fix formatting and lint issues
 scripts/check-fresh-install.sh  # Install the packed package into an empty project and lint with it (CI runs this)
@@ -52,6 +54,7 @@ scripts/check-fresh-install.sh  # Install the packed package into an empty proje
 ```text
 lib/
 ├── index.mjs          Entry point; exports eslintConfigScratch and prettierConfigScratch
+├── index.d.mts        Type declarations for index.mjs (hand-written)
 ├── eslint.mjs         ESLint configuration logic
 ├── prettier.mjs       Prettier configuration
 └── legacy/            Backward-compatible named configs for older consumers
@@ -63,6 +66,8 @@ lib/
 test/
 ├── eslint.test.mjs    Vitest test suite — lints fixture files and asserts error counts
 ├── resolved-config.test.mjs  Snapshots the resolved config per exported config and file type
+├── api.test.mjs       Checks the names the package exports at runtime
+├── types/             Consumer-style TypeScript files checked by `npm run test:types` (see tsconfig.json)
 ├── __snapshots__/     Snapshots of the lint messages each fixture produces, and of the resolved configs
 ├── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
 └── legacy/            The same fixtures, linted with the legacy configs
@@ -70,7 +75,8 @@ scripts/
 └── check-fresh-install.sh   Lints fixtures with the packed package installed fresh, without package-lock.json
 ```
 
-Only `lib/` (plus the README and license files) is published; see `files` in `package.json`.
+Only `lib/` (plus the README and license files) is published; see `files` in `package.json`. The `exports` map in
+`package.json` makes `eslint-config-scratch` (and its `package.json`) the only importable paths.
 
 ## Exported API
 
@@ -88,6 +94,8 @@ The main export (`lib/index.mjs`) provides:
 All of the above are part of the public API. A rule change that causes previously-passing code to fail lint is
 a breaking change and warrants a semver major bump. A change that permits previously-forbidden patterns is
 non-breaking (`feat` or `fix`).
+
+When the exported API changes, update `lib/index.d.mts`, `test/api.test.mjs`, and `test/types/usage.mts` together.
 
 ## Testing approach
 
