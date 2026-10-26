@@ -174,9 +174,10 @@ Upgrade `eslint` and `eslint-config-scratch` together. Then:
   linting. If npm refuses to install ESLint 10 because of a direct dependency on `eslint-plugin-react` or
   `eslint-plugin-jsx-a11y`, remove that dependency unless your own config imports the plugin. This package already
   provides both.
-
 - Remove `/* eslint-env */` comments. ESLint 10 reports them as errors; declare globals with `languageOptions.globals`
   instead.
+- If your config imports `globals`, make sure it's in your own `devDependencies` (see
+  [Basic Configuration](#basic-configuration)).
 - Fix reports from the rules ESLint 10 added to `eslint:recommended`: `no-unassigned-vars`, `no-useless-assignment`,
   and `preserve-caught-error`. They apply to both the `recommended` and `legacy` configurations. Also,
   `no-shadow-restricted-names` now reports variables named `globalThis`.
