@@ -78,7 +78,8 @@ The main export (`lib/index.mjs`) provides:
 
 - `eslintConfigScratch.recommended` — primary config; combines type-free and type-checked rules
 - `eslintConfigScratch.recommendedTypeFree` — for JavaScript without type information
-- `eslintConfigScratch.recommendedTypeChecked` — for TypeScript with full type checking
+- `eslintConfigScratch.recommendedTypeChecked` — for TypeScript with full type checking; applies only to TypeScript
+  files, because typescript-eslint's parser accepts TypeScript syntax in JavaScript files
 - `eslintConfigScratch.defineConfig` — re-export of ESLint's `defineConfig` helper
 - `eslintConfigScratch.miscFileRules` — rules for HTML, XML, and Markdown files (included in `recommended`)
 - `eslintConfigScratch.legacy.*` — named legacy configs (`base`, `es6`, `node`, `react`, `typescript`) for older
