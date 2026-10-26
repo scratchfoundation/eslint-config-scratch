@@ -69,6 +69,18 @@ const testInfo = {
       errorCount: 7,
     },
     {
+      name: 'HTML inline script (good)',
+      filePath: 'inline-script.good.html',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'HTML inline script (bad)',
+      filePath: 'inline-script.bad.html',
+      warningCount: 0,
+      errorCount: 1,
+    },
+    {
       name: 'Markdown code blocks (good)',
       filePath: 'markdown.good.md',
       warningCount: 0,
