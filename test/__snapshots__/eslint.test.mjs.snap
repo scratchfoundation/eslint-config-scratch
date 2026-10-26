@@ -95,6 +95,21 @@ exports[`legacy > React JSX (good) 1`] = `[]`;
 
 exports[`recommended > CommonJS (good) 1`] = `[]`;
 
+exports[`recommended > HTML inline script (bad) 1`] = `
+[
+  {
+    "column": 13,
+    "endColumn": 19,
+    "endLine": 10,
+    "line": 10,
+    "messageId": "unusedVar",
+    "ruleId": "no-unused-vars",
+  },
+]
+`;
+
+exports[`recommended > HTML inline script (good) 1`] = `[]`;
+
 exports[`recommended > Markdown code blocks (good) 1`] = `[]`;
 
 exports[`recommended > Plain JS (bad) 1`] = `
@@ -245,3 +260,13 @@ exports[`recommended > React JSX (bad) 1`] = `
 `;
 
 exports[`recommended > React JSX (good) 1`] = `[]`;
+
+exports[`recommended > TypeScript syntax in JS (bad) 1`] = `
+[
+  {
+    "column": 20,
+    "line": 2,
+    "ruleId": null,
+  },
+]
+`;

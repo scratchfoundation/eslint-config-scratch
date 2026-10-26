@@ -66,6 +66,7 @@ lib/
 test/
 ├── eslint.test.mjs    Vitest test suite — lints fixture files and asserts error counts
 ├── resolved-config.test.mjs  Snapshots the resolved config per exported config and file type
+├── prettier.test.mjs  Formats sample code with the Prettier config and checks the output
 ├── api.test.mjs       Checks the names the package exports at runtime
 ├── types/             Consumer-style TypeScript files checked by `npm run test:types` (see tsconfig.json)
 ├── __snapshots__/     Snapshots of the lint messages each fixture produces, and of the resolved configs
@@ -84,9 +85,11 @@ The main export (`lib/index.mjs`) provides:
 
 - `eslintConfigScratch.recommended` — primary config; combines type-free and type-checked rules
 - `eslintConfigScratch.recommendedTypeFree` — for JavaScript without type information
-- `eslintConfigScratch.recommendedTypeChecked` — for TypeScript with full type checking
+- `eslintConfigScratch.recommendedTypeChecked` — for TypeScript with full type checking; applies only to TypeScript
+  files, because typescript-eslint's parser accepts TypeScript syntax in JavaScript files
 - `eslintConfigScratch.defineConfig` — re-export of ESLint's `defineConfig` helper
-- `eslintConfigScratch.miscFileRules` — rules for HTML, XML, and Markdown files (included in `recommended`)
+- `eslintConfigScratch.miscFileRules` — support for HTML and XML files, and for code blocks in Markdown files
+  (included in `recommended`)
 - `eslintConfigScratch.legacy.*` — named legacy configs (`base`, `es6`, `node`, `react`, `typescript`) for older
   consumers
 - `prettierConfigScratch.recommended` — Prettier configuration

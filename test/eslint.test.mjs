@@ -51,6 +51,12 @@ const testInfo = {
       errorCount: 2,
     },
     {
+      name: 'TypeScript syntax in JS (bad)',
+      filePath: 'typescript-syntax.bad.mjs',
+      warningCount: 0,
+      errorCount: 1,
+    },
+    {
       name: 'Plain TS (good)',
       filePath: 'plain.good.ts',
       warningCount: 0,
@@ -61,6 +67,18 @@ const testInfo = {
       filePath: 'plain.bad.ts',
       warningCount: 0,
       errorCount: 7,
+    },
+    {
+      name: 'HTML inline script (good)',
+      filePath: 'inline-script.good.html',
+      warningCount: 0,
+      errorCount: 0,
+    },
+    {
+      name: 'HTML inline script (bad)',
+      filePath: 'inline-script.bad.html',
+      warningCount: 0,
+      errorCount: 1,
     },
     {
       name: 'Markdown code blocks (good)',

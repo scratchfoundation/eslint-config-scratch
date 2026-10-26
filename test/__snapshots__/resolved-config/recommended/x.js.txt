@@ -1,5 +1,5 @@
 processor: -
-parser: typescript-eslint/parser
+parser: -
 sourceType: module
 projectService: -
 @eslint-community/eslint-comments/disable-enable-pair: error

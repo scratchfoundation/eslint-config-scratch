@@ -109,18 +109,34 @@ export default eslintConfigScratch.defineConfig(
 )
 ```
 
+This configuration doesn't declare environment globals, so code that uses `console`, `window`, or `process` needs
+`languageOptions.globals` like the example above. If you import the [`globals`](https://www.npmjs.com/package/globals)
+package for that, install it in your own project:
+
+```bash
+npm install -D globals
+```
+
+`eslint-config-scratch` depends on `globals` internally, so an import may resolve without installing it. Don't rely on
+that: it isn't part of this package's API, and it breaks with stricter package managers or a future release of this
+package.
+
 ## Granular Configuration
 
 The `eslintConfigScratch` object contains granular configurations as well:
 
 - `recommendedTypeFree`: A configuration suitable for contexts without type information, such as a JavaScript project.
-- `recommendedTypeChecked`: A configuration suitable for contexts with type information, such as a TypeScript project.
-  You must provide extra configuration to `parserOptions` to enable type checking. See here:
+- `recommendedTypeChecked`: A configuration for TypeScript files with type information. It applies only to TypeScript
+  files. You must provide extra configuration to `parserOptions` to enable type checking. See here:
   <https://typescript-eslint.io/getting-started/typed-linting/>
 
 The `recommended` configuration is a combination of the two, and should be suitable for most projects. Features
 requiring type information are enabled for TypeScript files, and features that don't require type information are
 enabled for all files.
+
+Type-aware rules apply only to TypeScript files. JavaScript files are parsed as JavaScript, so TypeScript syntax such
+as `const x: number = 1` in a `.js` file is an error. To type-check JSDoc types in JavaScript, use TypeScript itself:
+enable `allowJs` and `checkJs` in a `jsconfig.json` or `tsconfig.json` and run `tsc --noEmit`.
 
 ## Legacy Styles
 
