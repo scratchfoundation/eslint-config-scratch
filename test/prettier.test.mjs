@@ -1,6 +1,8 @@
 import * as prettier from 'prettier'
 import { expect, test } from 'vitest'
-import { prettierConfigScratch } from '../lib/index.mjs'
+// Import the Prettier config directly: `lib/index.mjs` also loads the ESLint plugins, and eslint-plugin-html warns when
+// it's loaded without ESLint.
+import * as prettierConfigScratch from '../lib/prettier.mjs'
 
 /**
  * Format JavaScript source with the recommended Prettier configuration.
