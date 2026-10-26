@@ -25,8 +25,8 @@ cat >"$consumer/eslint.config.mjs" <<'EOF'
 import { eslintConfigScratch } from 'eslint-config-scratch'
 
 export default eslintConfigScratch.defineConfig(eslintConfigScratch.recommended, {
-  files: ['**/*.ts'],
-  languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } },
+  files: ['**/*.{ts,tsx,mts,cts}'],
+  languageOptions: { parserOptions: { tsconfigRootDir: import.meta.dirname } },
 })
 EOF
 

@@ -1,11 +1,11 @@
 {
   "name": "eslint-config-scratch",
-  "version": "14.1.94",
+  "version": "14.1.97",
   "description": "Shareable ESLint config for Scratch",
   "main": "./lib/index.mjs",
   "scripts": {
     "prepare": "husky",
-    "format": "prettier --write . && eslint --fix",
+    "format": "eslint --fix && prettier --write .",
     "test:lint": "eslint && prettier --check .",
     "test:vitest": "vitest run",
     "test": "npm run test:lint && npm run test:vitest"
@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
-    "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "9.39.5",
     "@eslint/markdown": "8.0.3",
     "@stylistic/eslint-plugin": "5.10.0",

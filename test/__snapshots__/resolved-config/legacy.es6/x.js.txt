@@ -1,0 +1,27 @@
+processor: -
+parser: -
+sourceType: module
+projectService: -
+@stylistic/arrow-parens: error ["as-needed"]
+@stylistic/arrow-spacing: error [{"before":true,"after":true}]
+@stylistic/no-confusing-arrow: error [{"allowParens":true,"onlyOneSimpleParam":false}]
+@stylistic/rest-spread-spacing: error ["never"]
+@stylistic/template-curly-spacing: error ["never"]
+arrow-body-style: error ["as-needed"]
+no-console: error [{}]
+no-duplicate-imports: error [{"includeExports":false,"allowSeparateTypeImports":false}]
+no-prototype-builtins: error
+no-template-curly-in-string: error
+no-useless-computed-key: error [{"enforceForClassMembers":true}]
+no-useless-constructor: error
+no-useless-rename: error [{"ignoreDestructuring":false,"ignoreImport":false,"ignoreExport":false}]
+no-var: error
+prefer-arrow-callback: error [{"allowNamedFunctions":false,"allowUnboundThis":true}]
+prefer-const: error [{"destructuring":"all","ignoreReadBeforeAssign":false}]
+prefer-promise-reject-errors: error [{"allowEmptyReject":false}]
+prefer-rest-params: error
+prefer-spread: error
+prefer-template: error
+require-atomic-updates: error [{"allowProperties":false}]
+require-await: error
+symbol-description: error

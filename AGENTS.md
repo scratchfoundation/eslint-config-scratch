@@ -62,7 +62,8 @@ lib/
     └── typescript.mjs
 test/
 ├── eslint.test.mjs    Vitest test suite — lints fixture files and asserts error counts
-├── __snapshots__/     Snapshots of the lint messages each fixture produces
+├── resolved-config.test.mjs  Snapshots the resolved config per exported config and file type
+├── __snapshots__/     Snapshots of the lint messages each fixture produces, and of the resolved configs
 ├── recommended/       Fixture files (good/bad) for JS, TypeScript, and React
 └── legacy/            The same fixtures, linted with the legacy configs
 scripts/
@@ -100,6 +101,11 @@ changing a rule:
 3. Run `npm run test:vitest` to confirm.
 
 Do not change expected error counts without also verifying the fixture file reflects the intended behavior.
+
+`test/resolved-config.test.mjs` records the resolved configuration (parser, source type, and every enabled rule with
+its options) for each exported config and file type, in `test/__snapshots__/resolved-config/`. When a dependency
+update fails this test, review the diff before running `npx vitest run -u`. An added or stricter rule makes lint fail
+on code that used to pass, so it needs a major release, not the `fix(deps)` patch that Renovate proposes.
 
 ## npm workflow
 
