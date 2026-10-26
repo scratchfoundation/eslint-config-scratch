@@ -102,6 +102,8 @@ exports[`legacy > React JSX (bad) 1`] = `
 
 exports[`legacy > React JSX (good) 1`] = `[]`;
 
+exports[`recommended > CommonJS (good) 1`] = `[]`;
+
 exports[`recommended > Plain JS (bad) 1`] = `
 [
   {

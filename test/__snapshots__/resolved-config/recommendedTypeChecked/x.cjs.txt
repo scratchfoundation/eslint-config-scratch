@@ -1,6 +1,6 @@
 processor: -
 parser: typescript-eslint/parser
-sourceType: module
+sourceType: commonjs
 projectService: -
 @eslint-community/eslint-comments/disable-enable-pair: error
 @eslint-community/eslint-comments/no-aggregating-enable: error
