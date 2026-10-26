@@ -43,7 +43,7 @@ camelcase: error [{"allow":[],"ignoreDestructuring":false,"ignoreGlobals":false,
 constructor-super: error
 curly: error ["multi-line"]
 dot-notation: error [{"allowKeywords":true,"allowPattern":""}]
-eqeqeq: error
+eqeqeq: error ["always"]
 for-direction: error
 func-style: error ["expression",{"allowArrowFunctions":false,"allowTypeAnnotation":false,"overrides":{}}]
 getter-return: error [{"allowImplicit":false}]
@@ -91,7 +91,7 @@ no-class-assign: error
 no-compare-neg-zero: error
 no-cond-assign: error ["except-parens"]
 no-const-assign: error
-no-constant-binary-expression: error
+no-constant-binary-expression: error [{"checkRelationalComparisons":false}]
 no-constant-condition: error [{"checkLoops":"allExceptWhileTrue"}]
 no-control-regex: error
 no-debugger: error
@@ -145,14 +145,15 @@ no-self-compare: error
 no-sequences: error [{"allowInParentheses":true}]
 no-setter-return: error
 no-shadow: error [{"allow":[],"builtinGlobals":false,"hoist":"functions","ignoreOnInitialization":false,"ignoreTypeValueShadow":true,"ignoreFunctionTypeParameterNameValueShadow":true}]
-no-shadow-restricted-names: error [{"reportGlobalThis":false}]
+no-shadow-restricted-names: error [{"reportGlobalThis":true}]
 no-sparse-arrays: error
 no-this-before-super: error
 no-throw-literal: error
+no-unassigned-vars: error
 no-undef: error [{"typeof":false}]
 no-undefined: error
 no-unexpected-multiline: error
-no-unmodified-loop-condition: error
+no-unmodified-loop-condition: error [{"checkConditionalExpressions":false}]
 no-unneeded-ternary: error [{"defaultAssignment":true}]
 no-unreachable: error
 no-unsafe-finally: error
@@ -161,8 +162,9 @@ no-unsafe-optional-chaining: error [{"disallowArithmeticOperators":false}]
 no-unused-expressions: error [{"allowShortCircuit":false,"allowTernary":false,"allowTaggedTemplates":false,"enforceForJSX":false,"ignoreDirectives":false}]
 no-unused-labels: error
 no-unused-private-class-members: error
-no-unused-vars: error [{"args":"after-used","varsIgnorePattern":"^_"}]
+no-unused-vars: error [{"vars":"all","args":"after-used","ignoreRestSiblings":false,"caughtErrors":"all","ignoreClassWithStaticInitBlock":false,"ignoreUsingDeclarations":false,"reportUsedIgnorePattern":false,"varsIgnorePattern":"^_"}]
 no-use-before-define: error [{"classes":true,"functions":true,"variables":true,"allowNamedExports":false,"enums":true,"typedefs":true,"ignoreTypeReferences":true}]
+no-useless-assignment: error
 no-useless-backreference: error
 no-useless-call: error
 no-useless-catch: error
@@ -170,7 +172,8 @@ no-useless-concat: error
 no-useless-escape: error [{"allowRegexCharacters":[]}]
 no-with: error
 one-var: error ["never"]
-radix: error ["always"]
+preserve-caught-error: error [{"requireCatchParameter":false,"errorClassNames":[]}]
+radix: error
 react/jsx-filename-extension: error [{"allow":"always","extensions":[".jsx",".tsx"]}]
 require-yield: error
 strict: error ["never"]

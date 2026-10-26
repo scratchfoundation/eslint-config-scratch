@@ -25,3 +25,18 @@ export function badRest(obj) {
   const { prop, ...rest } = obj
   return rest
 }
+
+// preserve-caught-error: the rethrown error drops the original as its `cause`
+export function badRethrow(text) {
+  try {
+    return JSON.parse(text)
+  } catch (err) {
+    throw new Error(`bad JSON: ${err}`)
+  }
+}
+
+// no-unassigned-vars: result is always undefined
+export function badUnassigned() {
+  let result
+  return result
+}

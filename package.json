@@ -27,11 +27,12 @@
     "scratch"
   ],
   "peerDependencies": {
-    "eslint": "^9.23.0"
+    "eslint": "^10.0.0"
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
-    "@eslint/js": "9.39.5",
+    "@eslint/compat": "2.1.1",
+    "@eslint/js": "10.0.1",
     "@eslint/markdown": "8.0.3",
     "@stylistic/eslint-plugin": "5.10.0",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
@@ -52,7 +53,7 @@
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
-    "eslint": "9.39.5",
+    "eslint": "10.13.0",
     "husky": "9.1.7",
     "scratch-semantic-release-config": "4.0.2",
     "semantic-release": "25.0.9",
@@ -64,5 +65,13 @@
   "files": [
     "lib/",
     "TRADEMARK"
-  ]
+  ],
+  "overrides": {
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
+    }
+  }
 }

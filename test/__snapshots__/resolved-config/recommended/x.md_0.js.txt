@@ -58,7 +58,7 @@ no-class-assign: error
 no-compare-neg-zero: error
 no-cond-assign: error ["except-parens"]
 no-const-assign: error
-no-constant-binary-expression: error
+no-constant-binary-expression: error [{"checkRelationalComparisons":false}]
 no-constant-condition: error [{"checkLoops":"allExceptWhileTrue"}]
 no-control-regex: error
 no-debugger: error
@@ -91,16 +91,18 @@ no-redeclare: error [{"builtinGlobals":true}]
 no-regex-spaces: error
 no-self-assign: error [{"props":true}]
 no-setter-return: error
-no-shadow-restricted-names: error [{"reportGlobalThis":false}]
+no-shadow-restricted-names: error [{"reportGlobalThis":true}]
 no-sparse-arrays: error
 no-template-curly-in-string: error
 no-this-before-super: error
+no-unassigned-vars: error
 no-unreachable: error
 no-unsafe-finally: error
 no-unsafe-negation: error [{"enforceForOrderingRelations":false}]
 no-unsafe-optional-chaining: error [{"disallowArithmeticOperators":false}]
 no-unused-labels: error
 no-unused-private-class-members: error
+no-useless-assignment: error
 no-useless-backreference: error
 no-useless-catch: error
 no-useless-computed-key: error [{"enforceForClassMembers":true}]
@@ -110,6 +112,7 @@ no-with: error
 prefer-arrow-callback: error [{"allowNamedFunctions":false,"allowUnboundThis":true}]
 prefer-const: error [{"destructuring":"any","ignoreReadBeforeAssign":false}]
 prefer-spread: error
+preserve-caught-error: error [{"requireCatchParameter":false,"errorClassNames":[]}]
 react/jsx-filename-extension: error [{"allow":"as-needed","extensions":[".jsx",".tsx"]}]
 require-atomic-updates: error [{"allowProperties":false}]
 require-yield: error

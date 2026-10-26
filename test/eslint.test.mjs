@@ -42,7 +42,7 @@ const testInfo = {
       name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
-      errorCount: 5,
+      errorCount: 7,
     },
     {
       name: 'React JSX (bad)',
@@ -118,7 +118,7 @@ const testInfo = {
 const messageSnapshot = (result) =>
   Object.fromEntries(
     Object.entries(result).filter(([k]) =>
-      ['line', 'column', 'endLine', 'endColumn', 'messageId', 'nodeType', 'ruleId'].includes(k),
+      ['line', 'column', 'endLine', 'endColumn', 'messageId', 'ruleId'].includes(k),
     ),
   )
 
@@ -143,7 +143,7 @@ describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => 
   // Linting one file at a time takes much longer
   beforeAll(async () => {
     const eslint = new ESLint({
-      overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'eslint.config.mjs'),
+      overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'fixtures.config.mjs'),
     })
     results = await eslint.lintFiles(testList.map((info) => path.resolve(import.meta.dirname, subdir, info.filePath)))
   })
