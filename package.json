@@ -43,7 +43,7 @@
     "@eslint/compat": "2.1.1",
     "@eslint/js": "10.0.1",
     "@eslint/markdown": "8.0.3",
-    "@stylistic/eslint-plugin": "5.10.0",
+    "@stylistic/eslint-plugin": "6.0.0",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-formatjs": "8.1.4",
