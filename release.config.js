@@ -5,5 +5,10 @@ module.exports = {
       name: 'master',
       // default channel
     },
+    {
+      name: 'v16',
+      prerelease: 'next',
+      channel: 'next',
+    },
   ],
 }
