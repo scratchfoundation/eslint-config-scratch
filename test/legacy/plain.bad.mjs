@@ -13,3 +13,9 @@ export const myElement = <div>{'hello'}</div>;
 
 // foo2 isn't defined
 export const bar = foo2();
+
+// a property value on its own line must be indented
+export const baz = {
+    qux:
+    'quux'
+};

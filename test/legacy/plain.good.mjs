@@ -8,3 +8,8 @@ const foo = () => {
 };
 
 export const bar = foo();
+
+export const baz = {
+    qux:
+        'quux'
+};

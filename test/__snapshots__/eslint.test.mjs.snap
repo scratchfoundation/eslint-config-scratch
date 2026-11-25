@@ -26,6 +26,14 @@ exports[`legacy > Plain JS (bad) 1`] = `
     "messageId": "undef",
     "ruleId": "no-undef",
   },
+  {
+    "column": 1,
+    "endColumn": 5,
+    "endLine": 20,
+    "line": 20,
+    "messageId": "wrongIndentation",
+    "ruleId": "@stylistic/indent",
+  },
 ]
 `;
 
