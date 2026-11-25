@@ -9,7 +9,20 @@ import * as prettierConfigScratch from '../lib/prettier.mjs'
  * @param {string} source - the code to format
  * @returns {Promise<string>} the formatted code
  */
-const format = (source) => prettier.format(source, { ...prettierConfigScratch.recommended, filepath: 'x.mjs' })
+const format = (source) =>
+  prettier.format(source, {
+    ...prettierConfigScratch.recommended,
+    filepath: 'x.mjs',
+  })
+
+test("wraps at Prettier's default width", async () => {
+  const source =
+    "export const greeting = ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta']\n"
+  expect(source.length).toBeGreaterThan(80)
+  expect(await format(source)).toBe(
+    "export const greeting = [\n  'alpha',\n  'beta',\n  'gamma',\n  'delta',\n  'epsilon',\n  'zeta',\n  'eta',\n  'theta',\n]\n",
+  )
+})
 
 test('sorts imports: node built-ins, then packages, then relative paths', async () => {
   const source =

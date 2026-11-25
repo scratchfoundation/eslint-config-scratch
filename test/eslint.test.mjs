@@ -136,7 +136,14 @@ const testInfo = {
 const messageSnapshot = (result) =>
   Object.fromEntries(
     Object.entries(result).filter(([k]) =>
-      ['line', 'column', 'endLine', 'endColumn', 'messageId', 'ruleId'].includes(k),
+      [
+        'line',
+        'column',
+        'endLine',
+        'endColumn',
+        'messageId',
+        'ruleId',
+      ].includes(k),
     ),
   )
 
@@ -152,32 +159,50 @@ test('make sure eslint works at all', async () => {
   expect(results[0].errorCount).toEqual(0)
 })
 
-describe.concurrent.for(Object.entries(testInfo))('$0', ([subdir, testList]) => {
-  /**
-   * @type {ESLint.LintResult[]}
-   */
-  let results
+describe.concurrent.for(Object.entries(testInfo))(
+  '$0',
+  ([subdir, testList]) => {
+    /**
+     * @type {ESLint.LintResult[]}
+     */
+    let results
 
-  // Linting one file at a time takes much longer
-  beforeAll(async () => {
-    const eslint = new ESLint({
-      overrideConfigFile: path.resolve(import.meta.dirname, subdir, 'fixtures.config.mjs'),
+    // Linting one file at a time takes much longer
+    beforeAll(async () => {
+      const eslint = new ESLint({
+        overrideConfigFile: path.resolve(
+          import.meta.dirname,
+          subdir,
+          'fixtures.config.mjs',
+        ),
+      })
+      results = await eslint.lintFiles(
+        testList.map((info) =>
+          path.resolve(import.meta.dirname, subdir, info.filePath),
+        ),
+      )
     })
-    results = await eslint.lintFiles(testList.map((info) => path.resolve(import.meta.dirname, subdir, info.filePath)))
-  })
 
-  test('Results container', () => {
-    expect(results).toBeDefined()
-    expect(results.length).toBe(testList.length)
-  })
-
-  testList.forEach(({ name, filePath, warningCount, errorCount }, i) => {
-    // Concurrent tests must use the context's `expect` so each snapshot is recorded against its own test.
-    test(name, ({ expect }) => {
-      expect(path.resolve(results[i].filePath)).toBe(path.resolve(import.meta.dirname, subdir, filePath))
-      expect(results[i].warningCount, util.inspect(results[i])).toBe(warningCount)
-      expect(results[i].errorCount, util.inspect(results[i])).toBe(errorCount)
-      expect(results[i].messages.map(messageSnapshot), util.inspect(results[i].messages)).toMatchSnapshot()
+    test('Results container', () => {
+      expect(results).toBeDefined()
+      expect(results.length).toBe(testList.length)
     })
-  })
-})
+
+    testList.forEach(({ name, filePath, warningCount, errorCount }, i) => {
+      // Concurrent tests must use the context's `expect` so each snapshot is recorded against its own test.
+      test(name, ({ expect }) => {
+        expect(path.resolve(results[i].filePath)).toBe(
+          path.resolve(import.meta.dirname, subdir, filePath),
+        )
+        expect(results[i].warningCount, util.inspect(results[i])).toBe(
+          warningCount,
+        )
+        expect(results[i].errorCount, util.inspect(results[i])).toBe(errorCount)
+        expect(
+          results[i].messages.map(messageSnapshot),
+          util.inspect(results[i].messages),
+        ).toMatchSnapshot()
+      })
+    })
+  },
+)
