@@ -6,8 +6,47 @@ on:
 permissions:
   contents: read # checkout
 jobs:
-  build-eslint:
+  node-versions:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    outputs:
+      versions: ${{ steps.list.outputs.versions }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: List the Node majors that engines allows
+        id: list
+        run: |
+          range=$(jq -r .engines.node package.json)
+          mapfile -t latest < <(curl -fsSL https://nodejs.org/dist/index.json | jq -r '
+            map(.version | ltrimstr("v"))
+            | map(select((split(".")[0] | tonumber) % 2 == 0))
+            | unique_by(split(".")[0])
+            | .[]')
+          allowed=$(npx --yes semver@7.8.6 --range "$range" "${latest[@]}")
+          versions=$(jq -cn --arg v "$allowed" '$v | split("\n") | map(select(length > 0) | split(".")[0])')
+          echo "engines.node: $range -> $versions"
+          echo "versions=$versions" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: node-versions
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ${{ fromJSON(needs.node-versions.outputs.versions) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          cache: 'npm'
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+      - name: Check a fresh install of the package
+        run: scripts/check-fresh-install.sh
+
+  build-eslint:
+    needs: test
     permissions:
       contents: write # publish a GitHub release
       issues: write # comment on released issues
@@ -36,9 +75,6 @@ jobs:
           github.workflow: ${WORKFLOW}
           EOF
       - run: npm ci
-      - run: npm test
-      - name: Check a fresh install of the package
-        run: scripts/check-fresh-install.sh
       - name: Semantic Release
         if: github.event_name == 'push'
         env:
