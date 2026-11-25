@@ -1,6 +1,9 @@
 // Type-checked by `npm run test:types`. Uses the package the way a consumer would, through its `exports` map.
 import type { Linter } from 'eslint'
-import { eslintConfigScratch, prettierConfigScratch } from 'eslint-config-scratch'
+import {
+  eslintConfigScratch,
+  prettierConfigScratch,
+} from 'eslint-config-scratch'
 import type { Config as PrettierConfig } from 'prettier'
 
 export const eslintConfig: Linter.Config[] = eslintConfigScratch.defineConfig(

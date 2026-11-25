@@ -70,6 +70,8 @@ import { prettierConfigScratch } from 'eslint-config-scratch'
 export default prettierConfigScratch.recommended
 ```
 
+The config leaves line width to Prettier: 80 columns, or `max_line_length` from your `.editorconfig` if it sets one.
+
 Finally, add scripts like these to your `package.json`:
 
 ```json
