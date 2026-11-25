@@ -183,6 +183,18 @@ export default eslintConfigScratch.defineConfig(
 )
 ```
 
+## Upgrading to v16
+
+If you're upgrading from v14, also follow [Upgrading to v15](#upgrading-to-v15-eslint-10).
+
+- The Prettier configuration no longer sets a line width. If your `.editorconfig` sets `max_line_length`, Prettier
+  uses it, so formatting doesn't change until you remove that setting. Otherwise Prettier wraps at its default of 80
+  columns, and `prettier --check` fails until you run `prettier --write .` once. Consider listing that reformatting
+  commit in a `.git-blame-ignore-revs` file so `git blame` skips it.
+- The legacy configurations use `@stylistic/eslint-plugin` v6. Its `indent` rule now checks the indentation of a
+  property value that starts on its own line. ESLint also prints a deprecation notice for `array-bracket-spacing`,
+  `object-curly-spacing`, and `object-property-newline` on each run; the rules still work as before.
+
 ## Upgrading to v15 (ESLint 10)
 
 Upgrade `eslint` and `eslint-config-scratch` together. Then:
