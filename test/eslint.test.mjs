@@ -104,7 +104,7 @@ const testInfo = {
       name: 'Plain JS (bad)',
       filePath: 'plain.bad.mjs',
       warningCount: 0,
-      errorCount: 3,
+      errorCount: 4,
     },
     {
       name: 'React JSX (bad)',
