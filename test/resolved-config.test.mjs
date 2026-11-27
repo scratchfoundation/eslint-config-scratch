@@ -18,13 +18,28 @@ const cases = {
     config: eslintConfigScratch.recommended,
     files: [...scriptFiles, 'x.md', 'x.md/0.js', 'x.md/0.ts', 'x.html'],
   },
-  recommendedTypeFree: { config: eslintConfigScratch.recommendedTypeFree, files: scriptFiles },
-  recommendedTypeChecked: { config: eslintConfigScratch.recommendedTypeChecked, files: scriptFiles },
-  'legacy.base': { config: eslintConfigScratch.legacy.base, files: ['x.js', 'x.jsx'] },
+  recommendedTypeFree: {
+    config: eslintConfigScratch.recommendedTypeFree,
+    files: scriptFiles,
+  },
+  recommendedTypeChecked: {
+    config: eslintConfigScratch.recommendedTypeChecked,
+    files: scriptFiles,
+  },
+  'legacy.base': {
+    config: eslintConfigScratch.legacy.base,
+    files: ['x.js', 'x.jsx'],
+  },
   'legacy.es6': { config: eslintConfigScratch.legacy.es6, files: ['x.js'] },
   'legacy.node': { config: eslintConfigScratch.legacy.node, files: ['x.js'] },
-  'legacy.react': { config: eslintConfigScratch.legacy.react, files: ['x.jsx'] },
-  'legacy.typescript': { config: eslintConfigScratch.legacy.typescript, files: ['x.ts'] },
+  'legacy.react': {
+    config: eslintConfigScratch.legacy.react,
+    files: ['x.jsx'],
+  },
+  'legacy.typescript': {
+    config: eslintConfigScratch.legacy.typescript,
+    files: ['x.ts'],
+  },
 }
 
 const severityNames = ['off', 'warn', 'error']
@@ -43,33 +58,46 @@ const describeConfig = (config) => {
     `projectService: ${config.languageOptions?.parserOptions?.projectService ?? '-'}`,
   ]
   const rules = Object.entries(config.rules ?? {})
-    .map(([name, [severity, ...options]]) => [name, severityNames[severity] ?? severity, options])
+    .map(([name, [severity, ...options]]) => [
+      name,
+      severityNames[severity] ?? severity,
+      options,
+    ])
     .filter(([, severity]) => severity !== 'off')
     .sort(([a], [b]) => (a < b ? -1 : 1))
   for (const [name, severity, options] of rules) {
-    lines.push(options.length ? `${name}: ${severity} ${JSON.stringify(options)}` : `${name}: ${severity}`)
+    lines.push(
+      options.length
+        ? `${name}: ${severity} ${JSON.stringify(options)}`
+        : `${name}: ${severity}`,
+    )
   }
   return `${lines.join('\n')}\n`
 }
 
-describe.concurrent.for(Object.entries(cases))('%s', ([configName, { config, files }]) => {
-  test.for(files)('%s', async (file, { expect }) => {
-    const eslint = new ESLint({
-      cwd: import.meta.dirname,
-      overrideConfigFile: true,
-      // ESLint only lints .js, .mjs, and .cjs by default. Consumers add the other extensions themselves.
-      overrideConfig: [{ files: ['**/*.{jsx,ts,tsx}'] }, ...config],
+describe.concurrent.for(Object.entries(cases))(
+  '%s',
+  ([configName, { config, files }]) => {
+    test.for(files)('%s', async (file, { expect }) => {
+      const eslint = new ESLint({
+        cwd: import.meta.dirname,
+        overrideConfigFile: true,
+        // ESLint only lints .js, .mjs, and .cjs by default. Consumers add the other extensions themselves.
+        overrideConfig: [{ files: ['**/*.{jsx,ts,tsx}'] }, ...config],
+      })
+      const resolved = await eslint.calculateConfigForFile(file)
+      await expect(describeConfig(resolved)).toMatchFileSnapshot(
+        `__snapshots__/resolved-config/${configName}/${file.replaceAll('/', '_')}.txt`,
+      )
     })
-    const resolved = await eslint.calculateConfigForFile(file)
-    await expect(describeConfig(resolved)).toMatchFileSnapshot(
-      `__snapshots__/resolved-config/${configName}/${file.replaceAll('/', '_')}.txt`,
-    )
-  })
-})
+  },
+)
 
 test('every exported config is covered', () => {
   const exported = [
-    ...Object.keys(eslintConfigScratch).filter((k) => !['defineConfig', 'legacy', 'miscFileRules'].includes(k)),
+    ...Object.keys(eslintConfigScratch).filter(
+      (k) => !['defineConfig', 'legacy', 'miscFileRules'].includes(k),
+    ),
     ...Object.keys(eslintConfigScratch.legacy).map((k) => `legacy.${k}`),
   ]
   expect(Object.keys(cases).sort()).toEqual(exported.sort())
