@@ -66,7 +66,7 @@
     "husky": "9.1.7",
     "scratch-semantic-release-config": "4.0.2",
     "semantic-release": "26.0.1",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "vitest": "5.1.1"
   },
   "engines": {
